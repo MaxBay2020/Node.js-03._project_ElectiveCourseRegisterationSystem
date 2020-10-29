@@ -2,21 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6cc9fd87-171d-40a4-9cb8-852ee18ebb63" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/all.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/argon.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/fonts.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/nucleo.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/Chart.extension.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/Chart.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/argon.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/jquery-scrollLock.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/jquery.scrollbar.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/js.cookie.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/adminCtrl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/Student.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/admin/course.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/admin/index.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/admin/layouts/layout1.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/admin/partials/header.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/admin/partials/sidebar.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/admin/partials/title.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/admin/report.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/admin/student.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/admin/student/studentImport.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/all.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/all.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/._team-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/._team-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/._team-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/._team-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/team-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/team-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/team-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/team-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,10 +54,24 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/views/admin/partials" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/views/admin/partials" />
+      <recent name="$PROJECT_DIR$/views/admin" />
+      <recent name="$PROJECT_DIR$/views" />
+      <recent name="$PROJECT_DIR$/views/layouts" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/views/admin/student" />
+      <recent name="$PROJECT_DIR$/views/admin" />
+      <recent name="$PROJECT_DIR$/views/partials" />
+      <recent name="$PROJECT_DIR$/views" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -72,7 +96,7 @@
       <option name="presentableId" value="Default" />
       <updated>1603843691751</updated>
       <workItem from="1603843693728" duration="1963000" />
-      <workItem from="1603978378759" duration="2430000" />
+      <workItem from="1603978378759" duration="19853000" />
     </task>
     <servers />
   </component>

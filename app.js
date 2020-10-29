@@ -3,6 +3,8 @@ const app = express()
 const mongoose = require('mongoose')
 const mongoDBURI = require('./config/mongodb')
 const session = require('express-session')
+const adminCtrl = require('./controllers/adminCtrl')
+const expressLayouts = require('express-ejs-layouts')
 
 
 //connect to mongoDB
@@ -19,10 +21,21 @@ app.use(session({
 
 app.set('view engine', 'ejs')
 app.use('/public', express.static(__dirname+'/public'))
+app.set('layout','./admin/layouts/layout1')
+app.use(expressLayouts)
 
-app.get('/', (erq,res) =>{
-    res.send('hello, node.js')
-})
+
+/***
+ * routes
+ */
+app.get('/admin', adminCtrl.showAdminDashboard) //admin panel shows
+app.get('/admin/student', adminCtrl.showAdminStudent) //student panel shows
+app.get('/admin/course', adminCtrl.showAdminCourse) //course panel shows
+app.get('/admin/report', adminCtrl.showAdminReport) //report panel shows
+app.get('/admin/student/import', adminCtrl.showAdminStudentImport) //import panel shows
+app.post('/admin/student/import', adminCtrl.doAdminStudentImport) //submit form
+
+
 
 //error page
 app.use((req,res)=>{
