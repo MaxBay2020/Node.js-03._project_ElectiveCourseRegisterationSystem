@@ -1,0 +1,1 @@
+module.exports = {uri: 'mongodb+srv://wangxiaobei:13ULovEi14962464@cluster0.xpnhi.mongodb.net/SelectiveCourseRegistrationSystem?retryWrites=true&w=majority'}
