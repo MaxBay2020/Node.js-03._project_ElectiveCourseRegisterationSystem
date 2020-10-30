@@ -47,33 +47,48 @@ exports.doAdminStudentImport = (req,res)=>{
     form.parse(req, (err, fields, files) => {
         //检查扩展名是不是为xlsx
         if(path.extname(files.studentExcel.name) !== '.xlsx'){
-            res.send('Sorry, the type of uploaded file is incorrect')
+            res.render('admin/partials/errorPage', {
+                'page': 'student',
+                'tip': 'Sorry, the type of uploaded file is incorrect'
+            })
+
             //删除这个错误文件
             fs.unlink('./'+files.studentExcel.path, (err) => {
                 if(err){
                     return console.log('delete failed')
                 }
-                return console.log('Your file has been deleted from the server')
+                console.log('Your file has been deleted from the server')
             })
+            return
         }
         //read excel file
         const workSheetsFromFile = xlsx.parse('./'+files.studentExcel.path);
         //子表是否齐全，应该是6个子表
         if(workSheetsFromFile.length !== 6){
-            return res.send('The excel file lacks of sub-forms')
+            return res.render('admin/partials/errorPage', {
+                'page': 'student',
+                'tip': 'The excel file lacks of sub-forms'
+            })
+            // return res.send('The excel file lacks of sub-forms')
         }
         //每个表格的表头是否符合要求
         for (let i = 0; i < 6; i++) {
             if(workSheetsFromFile[i].data[0][0]!=='学号' ||
                 workSheetsFromFile[i].data[0][1]!=='姓名'
             ){
-                return res.send('The format of sub-form '+(i+1)+' is incorrect. Please make sure there are studentId, studentName on the top of each sub-form')
+                return res.render('admin/partials/errorPage', {
+                    'page': 'student',
+                    'tip': 'The format of sub-form '+(i+1)+' is incorrect. Please make sure there are studentId, studentName on the top of each sub-form'
+                })
             }
         }
 
         //此时，文件是合法的，命令mongoose，将数据存储到db中
         Student.importStudents(workSheetsFromFile)
-        res.send('Upload successfully')
+        return res.render('admin/partials/errorPage', {
+            'page': 'student',
+            'tip': 'Upload successfully'
+        })
 
     })
 }

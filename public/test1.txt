@@ -1,0 +1,4 @@
+[
+        {"sId": "100001","sName": "lucy", "sGrade": "M1"},
+        {"sId": "100002","sName": "max", "sGrade": "M2"}
+]

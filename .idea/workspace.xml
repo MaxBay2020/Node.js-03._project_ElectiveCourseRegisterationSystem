@@ -2,31 +2,39 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6cc9fd87-171d-40a4-9cb8-852ee18ebb63" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/controllers/adminCtrl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/Student.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/admin/course.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/admin/index.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/admin/layouts/layout1.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/admin/partials/header.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/admin/partials/sidebar.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/admin/partials/title.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/admin/report.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/admin/student.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/admin/student/studentImport.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/images/ui-icons_6da8d5_256x240.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/jquery-ui-1.8.16.custom.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/ui.jqgrid.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/grid.locale-en.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/jquery-1.7.1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/jquery.jqGrid.src.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/test1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/test2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/admin/partials/errorPage.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/all.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/all.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/._team-1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/._team-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/._team-3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/._team-4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/team-1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/team-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/team-3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/team-4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/adminCtrl.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/adminCtrl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Student.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Student.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/upload_53d73307583796709f6e9367078bdb3b.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/upload_6d6d8337aceaf31ff8e8b3307123ab59.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/upload_7f01b322b7dc091ff5af9c7afb82cd70.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/upload_8499f1ce807629875338a4a71c34ae5a.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/upload_88f4ee4d4153586e0508fc2a8e87c58a.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/upload_898307d3966e039eadd9bf3fbbbba6e0.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/upload_8a83057b7f9439c7c1b036303f9ab00e.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/upload_95f252fcde212f7b62787c6aa7cbc540.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/upload_96c01dd5c27bb08ae1df3e76dfa8bd4d.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/upload_98777feb319c58324ef226aca4732a44.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/upload_991cd8f5024c84b4ba949d08b4e02aaf.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/upload_9b308323568a45613b704d06783a763c.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/upload_9f334c8782fb75e14bd0b9360a618ff1.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/upload_a199fcfeb98b5963a37ab3e11aa509b2.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/upload_b312ccb94c49729a24c4dd5f8cf4e650.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/upload_c8b12cae901bf5b7fb4cce06022766f5.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/upload_e7297712120ed271f49d2602b05dcc3d.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/admin/layouts/layout1.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/layouts/layout1.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/admin/student.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/student.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/admin/student/studentImport.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/student/studentImport.ejs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -54,23 +62,25 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/views/admin/partials" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/views/admin/partials" />
-      <recent name="$PROJECT_DIR$/views/admin" />
-      <recent name="$PROJECT_DIR$/views" />
-      <recent name="$PROJECT_DIR$/views/layouts" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/css/images" />
+      <recent name="$PROJECT_DIR$/public/js" />
+      <recent name="$PROJECT_DIR$/views/admin/partials" />
       <recent name="$PROJECT_DIR$/views/admin/student" />
       <recent name="$PROJECT_DIR$/views/admin" />
-      <recent name="$PROJECT_DIR$/views/partials" />
-      <recent name="$PROJECT_DIR$/views" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public" />
+      <recent name="$PROJECT_DIR$/public/images" />
+      <recent name="$PROJECT_DIR$/public/css" />
+      <recent name="$PROJECT_DIR$/public/js" />
+      <recent name="$PROJECT_DIR$/views/admin/student" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -96,7 +106,8 @@
       <option name="presentableId" value="Default" />
       <updated>1603843691751</updated>
       <workItem from="1603843693728" duration="1963000" />
-      <workItem from="1603978378759" duration="19853000" />
+      <workItem from="1603978378759" duration="26586000" />
+      <workItem from="1604017239072" duration="13016000" />
     </task>
     <servers />
   </component>
@@ -108,7 +119,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
