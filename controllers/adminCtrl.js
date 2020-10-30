@@ -92,3 +92,9 @@ exports.doAdminStudentImport = (req,res)=>{
 
     })
 }
+
+exports.getAllStudents = (req,res)=>{
+    Student.find({}, (err, students) =>{
+        res.send(students)
+    })
+}

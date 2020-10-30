@@ -34,7 +34,7 @@ app.get('/admin/course', adminCtrl.showAdminCourse) //course panel shows
 app.get('/admin/report', adminCtrl.showAdminReport) //report panel shows
 app.get('/admin/student/import', adminCtrl.showAdminStudentImport) //import panel shows
 app.post('/admin/student/import', adminCtrl.doAdminStudentImport) //submit form
-
+app.get('/student', adminCtrl.getAllStudents)//get all students info
 
 
 //error page
