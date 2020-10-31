@@ -139,12 +139,26 @@ exports.updateOneStudent = (req,res) =>{
     })
 }
 
+//add student
 exports.addOneStudent = (req,res) => {
     const form = formidable({ multiples: true, uploadDir: './uploads', keepExtensions: true })
     form.parse(req, (err, fields) => {
         if(err){
             return res.send('-2') //-1 server error
         }
+        //验证sId是否合法
+        Student.find({sId:fields.sId}, (err, students) => {
+            if(err){
+                return res.send('-2') //-2 server error
+            }
+            if(students.length===0){
+                return res.send('-1') //-1 no such student
+            }else{
+                return res.send('1') //1 student exists
+            }
+
+        })
+
         let student = new Student({
             sId: fields.sId,
             sName: fields.sName,
@@ -162,7 +176,8 @@ exports.addOneStudent = (req,res) => {
     })
 }
 
-exports.checkStudentId = (req,res) => {
+//check whether studentID exists
+exports.checkStudentExists = (req,res) => {
     Student.find({sId:req.params.sId}, (err, students) => {
         if(err){
             return res.send('-2') //-2 server error
@@ -173,5 +188,22 @@ exports.checkStudentId = (req,res) => {
             return res.send('1') //1 student exists
         }
 
+    })
+}
+
+//remove selected students
+exports.removeSelectedStudents = (req,res) => {
+    const form = formidable({ multiples: true, uploadDir: './uploads', keepExtensions: true })
+    form.parse(req, (err, fields) => {
+        if(fields.sIds===undefined){
+            //没有条目被选中
+            return res.send('-1') //-1 no students selected
+        }
+        Student.remove({sId:fields.sIds}, (err) => {
+            if(err){
+                return res.send('-2') //-2 server error
+            }
+            return res.send('1') //1 delete successfully
+        })
     })
 }

@@ -15,7 +15,6 @@ $('#sId').bind('input', ()=>{
         $.ajax({
             type: 'checkout',
             url: '/student/'+sId,
-            data:{sId:sId},
             success: (data) => {
                 if(data === '1'){
                     //1 student id exists
@@ -118,7 +117,27 @@ $('#submitBtn').click(() => {
                 group: 'submit-satus',
             })
         }else if(data==='1'){
-            //1 add successfully
+            //1 student exists
+            spop({
+                template: "Oops! Student exists. It maybe added by another teacher",
+                position  : 'top-right',
+                style: 'error',
+                group: 'submit-satus',
+            })
+
+            //clear form
+            $('input').val('')
+            //重制valid对象
+            let valid = {
+                sId:false,
+                sName:false,
+                sGrade:false,
+                sPassword: false
+            }
+            //提示框消失
+            $('.myTip').attr('hidden', true)
+        } else if(data==='-1'){
+            //-1 add successfully
             spop({
                 template: 'Add successfully',
                 autoclose: 2000,

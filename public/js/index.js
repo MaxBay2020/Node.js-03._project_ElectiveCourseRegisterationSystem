@@ -27,7 +27,7 @@ function pageInit(){
 				mtype : "get",//向后台请求数据的ajax的类型。可选post,get
 				viewrecords : true, //表格右下角显示记录数，如View 1 - 10 of 15
 				// caption : "JSON Example"//表格的标题名字
-				// multiselect: true,
+				multiselect: true, //可以选择条目
 				autowidth: true, //填充满表格宽度
 				scrollOffset: 2, //如果不设置，表格右边会空出来18px留给滚动条；设置2为刚刚好让滚动条宽度消失，最为美观
 				pgbuttons: true,
@@ -93,6 +93,51 @@ function pageInit(){
 			postData: {keywordSName: keywordSName}, //查询条件
 			page:1
 		}).trigger("reloadGrid") //触发表格重新刷新
+	})
+
+	$('#delBtn').click(() => {
+		// let s = jQuery("#list").jqGrid('getGridParam', 'selarrrow');
+
+		//参考：https://www.jb51.net/article/50202.htm
+		let selrow =$("#list").getGridParam('selarrrow');//获取多行的id
+		let sIds=[];//初始化一个数组，用来存放选中的sId值
+		$(selrow).each(function (index, value) {//遍历每个id 找到每个data 并把属性加到初始化数组里
+			let rowData = $("#list").jqGrid("getRowData", value);
+			sIds.push(rowData.sId);
+		});
+
+		if(prompt('You are trying to delete '+sIds.length+ ' students.\r\nPlease enter \'delete selected students\' to confirm: ') !== 'delete selected students'){
+			swal("Prompt!", "You did not remove any students", "info");
+			return
+		}else{
+			//发送ajax删除选中的学生信息
+			$.ajax({
+				type: 'delete',
+				url: '/student',
+				data: {sIds: sIds},
+				traditional: true,
+				success: (data) => {
+					if(data==='1'){
+						//1 delete successfully
+						swal("Good job!", "You have delete "+sIds.length+" students!", "success");
+						//重新加载数据
+						//实时查询结果
+						$("#list").jqGrid('setGridParam',{  // 重新加载数据
+							datatype:'json',
+							page:1
+						}).trigger("reloadGrid") //触发表格重新刷新
+
+					}else if(data==='-1'){
+						//0 delete failed
+						swal("Oops!", "Please select students first!", "info");
+					}else if(data==='-2'){
+						//-2 server error
+						swal("Oops!", "Server error. Please contact admin. Error code: -2!", "error");
+					}
+
+				}
+			})
+		}
 	})
 }
 

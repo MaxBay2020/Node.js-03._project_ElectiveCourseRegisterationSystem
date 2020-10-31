@@ -36,9 +36,11 @@ app.get('/admin/report', adminCtrl.showAdminReport) //report panel shows
 app.get('/admin/student/import', adminCtrl.showAdminStudentImport) //import panel shows
 app.post('/admin/student/import', adminCtrl.doAdminStudentImport) //submit form
 app.get('/student', adminCtrl.getAllStudents)//get all students info
-app.post('/student/:sId', adminCtrl.updateOneStudent) //update student info
 app.post('/student', adminCtrl.addOneStudent) //add one student
-app.checkout('/student/:sId', adminCtrl.checkStudentId) //check whether student id exists
+app.delete('/student', adminCtrl.removeSelectedStudents) //remove selected students
+app.checkout('/student/:sId', adminCtrl.checkStudentExists) //check whether student id exists
+app.post('/student/:sId', adminCtrl.updateOneStudent) //update student info
+
 
 //error page
 app.use((req,res)=>{
