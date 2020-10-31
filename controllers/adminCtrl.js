@@ -93,8 +93,32 @@ exports.doAdminStudentImport = (req,res)=>{
     })
 }
 
+//load all students to list
 exports.getAllStudents = (req,res)=>{
     Student.find({}, (err, students) =>{
         res.send(students)
+    })
+}
+
+exports.updateOneStudent = (req,res) =>{
+    let sId = req.params.sId
+    const form = formidable({ multiples: true, uploadDir: './uploads', keepExtensions: true });
+    form.parse(req, (err, fields) => {
+        if(err){
+            return res.send('0')
+        }
+        Student.find({sId:sId}, (err,students) => {
+            if(err){
+                return res.send('-2') //-2 server error
+            }else if(students.length!==1){
+                return res.send('-1') //-1 no such student
+            }
+            students[0].sName = fields.sName
+            students[0].sGrade = fields.sGrade
+            students[0].save().then(()=>{
+                return res.send('1') //1 update successfully
+            })
+        })
+
     })
 }

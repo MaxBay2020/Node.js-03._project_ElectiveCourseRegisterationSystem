@@ -104,7 +104,7 @@
     $('#importForm').submit(() => {
         if(prompt('Attention: upload will reset database. Enter \"reset database\" to confirm') !== 'reset database'){
             //return false将会阻止表单的继续上传
-            alert('The database has not been reset')
+            swal("Prompt!", "You did not reset the database!", "warning");
             return false
         }
     })

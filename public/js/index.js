@@ -12,7 +12,7 @@ function pageInit(){
 				datatype : "json",//请求数据返回的类型。可选json,xml,txt
 				colNames : [ "StudentID", "Name", "Grade", 'Initial Password' ],//jqGrid的列显示名字
 				colModel : [ //jqGrid每一列的配置信息。包括名字，索引，宽度,对齐方式.....
-				             {name : 'sId',index : 'sId',width : 50, editable: true, align: 'center'},
+				             {name : 'sId',index : 'sId',width : 50, align: 'center'},
 				             {name : 'sName',index : 'sName',width : 50, editable: true, align: 'center'},
 				             {name : 'sGrade',index : 'sGrade',width : 50, editable: true, align: 'center', edittype: 'select', editoptions: {value:'M1:M1;M2:M2;M3:M3;H1:H1;H2:H2;H3:H3'}},
 				             {name : 'sPassword',index : 'sPassword',width : 50, editable: false, align: 'center'}
@@ -42,11 +42,40 @@ function pageInit(){
 					//下面这种方法好用！
 					var id = $("#list").jqGrid('getGridParam','selrow');//根据点击行获得点击行的id（id为jsonReader: {id: "id" },）
 					var rowData = $("#list").jqGrid("getRowData",id);//根据上面的id获得本行的所有数据
-					var val= rowData.sId; //获得指定列的值 （sId 为colModel的name)
-					console.log(val)
-				},
-				onPaging: function (a) {
-					console.log(a)
+					var sId= rowData.sId; //获得指定列的值 （sId 为colModel的name)
+					var sName= rowData.sName; //获得指定列的值 （sId 为colModel的name)
+					var sGrade= rowData.sGrade; //获得指定列的值 （sId 为colModel的name)
+					//取得学号，发送ajax之后入库
+					console.log(sId, sName, sGrade)
+					$.post('/student/'+sId,{
+						sName:sName,
+						sGrade:sGrade
+					}, (data) => {
+						if(data==='1'){
+							spop({
+								template: 'Success',
+								autoclose: 2000,
+								position  : 'top-right',
+								style: 'success',
+								group: 'submit-satus',
+							});
+						}else if(data==='-1'){
+							spop({
+								template: "No such student with id:"+sId+"in the database. It may be modified by another teacher. Please refresh page.",
+								position  : 'top-right',
+								style: 'error',
+								group: 'submit-satus',
+							});
+						}else if(data==='-2'){
+							spop({
+								template: "Server error. Please contact admin. Error code: -2",
+								position  : 'top-right',
+								style: 'error',
+								group: 'submit-satus',
+							});
+						}
+					})
+
 				}
 			})
 

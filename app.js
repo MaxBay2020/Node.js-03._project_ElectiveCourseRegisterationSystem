@@ -21,12 +21,13 @@ app.use(session({
 
 app.set('view engine', 'ejs')
 app.use('/public', express.static(__dirname+'/public'))
+app.use('/node_modules', express.static(__dirname+'/node_modules'))
 app.set('layout','./admin/layouts/layout1')
 app.use(expressLayouts)
 
 
 /***
- * routes
+ * RESTful routes
  */
 app.get('/admin', adminCtrl.showAdminDashboard) //admin panel shows
 app.get('/admin/student', adminCtrl.showAdminStudent) //student panel shows
@@ -35,7 +36,7 @@ app.get('/admin/report', adminCtrl.showAdminReport) //report panel shows
 app.get('/admin/student/import', adminCtrl.showAdminStudentImport) //import panel shows
 app.post('/admin/student/import', adminCtrl.doAdminStudentImport) //submit form
 app.get('/student', adminCtrl.getAllStudents)//get all students info
-
+app.post('/student/:sId', adminCtrl.updateOneStudent) //update student info
 
 //error page
 app.use((req,res)=>{
