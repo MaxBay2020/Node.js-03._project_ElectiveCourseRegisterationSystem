@@ -90,16 +90,17 @@
                             <div class="col">
                                 <h3 class="mb-0 active">Students list</h3>
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <a class="btn btn-primary btn-sm" href="/admin/student/import">Import students</a>
                                         <a href="javascript:void(0)" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addStudent">Add student</a>
                                         <a href="javascript:void(0)" id="delBtn" class="btn btn-danger btn-sm">Delete</a>
                                     </div>
-                                    <div class="col-md-4"></div>
                                     <div class="col-md-4">
-                                        <input autofocus id="keywordSName" class="form-control form-control-sm" type="text" placeholder="Please enter keyword" name="keywordSName">
+                                        <input width="10px" autofocus id="keywordSName" class="form-control form-control-sm" type="text" placeholder="Please enter keyword" name="keywordSName">
                                     </div>
-
+                                    <div class="col-md-2">
+                                        <a href="javascript:void(0)" id="downloadBtn" class="btn btn-success btn-sm">Download</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -108,13 +109,6 @@
                         <!-- Projects table -->
                         <table id="list"></table>
                         <div id="pager"></div>
-                        <div class="row">
-                            <div class="col-md 2"></div>
-                            <div class="col-ms-2">
-                                <button id="delBtn" class="btn btn-danger btn-sm">Delete</button>
-                            </div>
-                            <div class="col-md 8"></div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -133,7 +127,7 @@
                 </button>
             </div>
             <div class="modal-body">
-<!--                <form>-->
+
                     <div class="form-group">
                         <label for="sId" class="col-form-label">Student ID:</label>
                         <input checkValid placeholder="Please enter student ID" name="sId" type="text" class="form-control" id="sId">
@@ -169,7 +163,7 @@
                     </div>
                     <div hidden id="sPasswordTip" class="myTip alert" role="alert"></div>
 
-<!--                </form>-->
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

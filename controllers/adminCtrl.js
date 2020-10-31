@@ -3,6 +3,7 @@ const path = require('path')
 const fs = require('fs')
 const xlsx = require('node-xlsx')
 const Student = require('../models/Student')
+const dateFormat = require('date-format')
 
 
 exports.showAdminDashboard = (req,res) => {
@@ -206,4 +207,60 @@ exports.removeSelectedStudents = (req,res) => {
             return res.send('1') //1 delete successfully
         })
     })
+}
+
+//download all students excel file
+let outputUrl = './public/downloads/'
+let fileName = dateFormat('StudentsList-yyyy-MM-dd-hh_mm_ss_SSS', new Date())+'.xlsx';
+exports.downloadStudentsXlsx = (req,res)=>{
+    let tableR = [] //整个excel文件，包含子表sheetR
+    let gradeArr = ['M1', 'M2', 'M3', 'H1', 'H2', 'H3']
+    var sheetR = [] //excel文件中的每一饿子表
+
+    //使用迭代器，将异步函数变成同步函数
+    //i为0,1,2,...表示读取M1, M2, ..., H3
+    function iterator(i){
+        //当迭代到6时，停止迭代
+        if(i===gradeArr.length){
+            //此时，excel中已经是排序好的文件了，写入文件
+            let buffer = xlsx.build(tableR)
+            fs.writeFile(outputUrl + fileName, buffer, (err) => {
+                if(err){
+                    return res.send('-1')
+                }
+                //向前端发送文件在服务器上的url地址
+                return res.send('/public/downloads/'+fileName)
+
+
+            })
+            return
+        }
+        //整理数据
+        Student.find({sGrade: gradeArr[i]}, (err, students) => {
+            students.forEach((item) => {
+                sheetR.push([
+                    item.sId,
+                    item.sName,
+                    item.sGrade,
+                    item.sPasswrod
+                ])
+            })
+
+            tableR.push({name: gradeArr[i], data: sheetR})
+
+            //进行下一次迭代
+            i++
+            iterator(i)
+            // //write file
+            // fs.writeFile('./exports/students.xlsx', buffer, (err) => {
+            //     if(err){
+            //         return
+            //     }
+            //     console.log(123)
+            // })
+        })
+    }
+    //调用迭代器
+    iterator(0)
+
 }

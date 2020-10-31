@@ -5,8 +5,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/adminCtrl.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/adminCtrl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/addStudent.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/addStudent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/admin/student.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/student.ejs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -42,11 +43,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/public/js/tipTool" />
       <recent name="$PROJECT_DIR$/public/css/tipTool" />
       <recent name="$PROJECT_DIR$/public/css/images" />
       <recent name="$PROJECT_DIR$/public/js" />
-      <recent name="$PROJECT_DIR$/views/admin/partials" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public/js" />
@@ -80,7 +81,7 @@
       <updated>1603843691751</updated>
       <workItem from="1603843693728" duration="1963000" />
       <workItem from="1603978378759" duration="26586000" />
-      <workItem from="1604017239072" duration="51439000" />
+      <workItem from="1604017239072" duration="59950000" />
     </task>
     <servers />
   </component>

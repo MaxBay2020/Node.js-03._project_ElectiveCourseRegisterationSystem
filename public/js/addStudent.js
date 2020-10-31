@@ -160,3 +160,29 @@ $('#submitBtn').click(() => {
         }
     })
 })
+
+//download request ajax
+$('#downloadBtn').click(()=> {
+    $.get('/admin/student/download', (data) => {
+        if(data==='-1'){
+            //-2 server error
+            spop({
+                template: "<h4 class=\"spop-title\">Error</h4>Downloaded failed, please try again",
+                position  : 'top-right',
+                style: 'error',
+                group: 'submit-satus',
+            })
+        }else{
+            //1 download successfully
+            spop({
+                template: '<h4 class="spop-title">Success</h4>Downloaded completed',
+                autoclose: 2000,
+                position  : 'top-right',
+                style: 'success',
+                group: 'submit-satus',
+            })
+            //跳转到excel文件的url，开启下载
+            window.location=data
+        }
+    })
+})

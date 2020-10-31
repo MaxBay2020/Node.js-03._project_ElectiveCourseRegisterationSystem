@@ -29,17 +29,18 @@ app.use(expressLayouts)
 /***
  * RESTful routes
  */
-app.get('/admin', adminCtrl.showAdminDashboard) //admin panel shows
-app.get('/admin/student', adminCtrl.showAdminStudent) //student panel shows
-app.get('/admin/course', adminCtrl.showAdminCourse) //course panel shows
-app.get('/admin/report', adminCtrl.showAdminReport) //report panel shows
-app.get('/admin/student/import', adminCtrl.showAdminStudentImport) //import panel shows
-app.post('/admin/student/import', adminCtrl.doAdminStudentImport) //submit form
-app.get('/student', adminCtrl.getAllStudents)//get all students info
-app.post('/student', adminCtrl.addOneStudent) //add one student
-app.delete('/student', adminCtrl.removeSelectedStudents) //remove selected students
+app.get     ('/admin', adminCtrl.showAdminDashboard) //admin panel shows
+app.get     ('/admin/student', adminCtrl.showAdminStudent) //student panel shows
+app.get     ('/admin/course', adminCtrl.showAdminCourse) //course panel shows
+app.get     ('/admin/report', adminCtrl.showAdminReport) //report panel shows
+app.get     ('/admin/student/import', adminCtrl.showAdminStudentImport) //import panel shows
+app.post    ('/admin/student/import', adminCtrl.doAdminStudentImport) //submit form
+app.get     ('/admin/student/download', adminCtrl.downloadStudentsXlsx) //download all students xlsx
+app.get     ('/student', adminCtrl.getAllStudents)//get all students info
+app.post    ('/student', adminCtrl.addOneStudent) //add one student
+app.delete  ('/student', adminCtrl.removeSelectedStudents) //remove selected students
 app.checkout('/student/:sId', adminCtrl.checkStudentExists) //check whether student id exists
-app.post('/student/:sId', adminCtrl.updateOneStudent) //update student info
+app.post    ('/student/:sId', adminCtrl.updateOneStudent) //update student info
 
 
 //error page
