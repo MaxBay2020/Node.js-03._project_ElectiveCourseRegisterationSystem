@@ -2,21 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6cc9fd87-171d-40a4-9cb8-852ee18ebb63" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/materials/studentsList.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/spop.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/spop.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/sweetalert.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/addStudent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/adminCtrl.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/adminCtrl.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/jquery-ui-1.8.16.custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/jquery-ui-1.8.16.custom.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/ui.jqgrid.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/ui.jqgrid.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/layouts/layout1.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/layouts/layout1.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/admin/student.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/student.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/student/studentImport.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/student/studentImport.ejs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -89,7 +80,7 @@
       <updated>1603843691751</updated>
       <workItem from="1603843693728" duration="1963000" />
       <workItem from="1603978378759" duration="26586000" />
-      <workItem from="1604017239072" duration="33089000" />
+      <workItem from="1604017239072" duration="45016000" />
     </task>
     <servers />
   </component>

@@ -89,10 +89,18 @@
                         <div class="row align-items-center">
                             <div class="col">
                                 <h3 class="mb-0 active">Students list</h3>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <a class="btn btn-primary btn-sm" href="/admin/student/import">Import students</a>
+                                        <a href="javascript:void(0)" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addStudent">Add student</a>
+                                    </div>
+                                    <div class="col-md-4"></div>
+                                    <div class="col-md-4">
+                                        <input autofocus id="keywordSName" class="form-control form-control-sm" type="text" placeholder="Please enter keyword" name="keywordSName">
+                                    </div>
 
-                                <a class="btn btn-primary btn-sm" href="/admin/student/import">Import students</a>
+                                </div>
                             </div>
-                            <a id="tooltip">tip</a>
                         </div>
                     </div>
                     <div class="table-responsive">
@@ -106,5 +114,62 @@
     </div>
 </div>
 
-<script src="/public/js/spop.js"></script>
+<!--模态框-->
+<div class="modal fade" id="addStudent" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add new student</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+<!--                <form>-->
+                    <div class="form-group">
+                        <label for="sId" class="col-form-label">Student ID:</label>
+                        <input checkValid placeholder="Please enter student ID" name="sId" type="text" class="form-control" id="sId">
+                    </div>
+                    <div hidden id="sIdTip" class="myTip alert" role="alert"></div>
 
+
+                    <div class="form-group">
+                        <label for="sName" class="col-form-label">Student Name:</label>
+                        <input checkValid placeholder="Please enter student name" type="text" name="sName" class="form-control" id="sName">
+                    </div>
+                    <div hidden id="sNameTip" class="myTip alert" role="alert"></div>
+
+
+                    <div class="form-group">
+                            <label class="col-form-label">Student Grade:</label>
+                            <select checkValid class="form-control" name="sGrade" id="sGrade">
+                                <option value="pleaseSelect">Please select</option>
+                                <option value="M1">M1</option>
+                                <option value="M1">M2</option>
+                                <option value="M1">M3</option>
+                                <option value="M1">H1</option>
+                                <option value="M1">H2</option>
+                                <option value="M1">H3</option>
+                            </select>
+                    </div>
+                    <div hidden id="sGradeTip" class="myTip alert" role="alert"></div>
+
+
+                    <div class="form-group">
+                        <label for="sPassword" class="col-form-label">Initial Password:</label>
+                        <input checkValid placeholder="Please enter student initial password" type="text" name="sPassword" class="form-control" id="sPassword">
+                    </div>
+                    <div hidden id="sPasswordTip" class="myTip alert" role="alert"></div>
+
+<!--                </form>-->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button disabled type="button" class="btn btn-primary" id="submitBtn">Add</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/public/js/spop.js"></script>
+<script src="/public/js/addStudent.js"></script>

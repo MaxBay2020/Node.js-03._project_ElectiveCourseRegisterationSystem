@@ -37,6 +37,8 @@ app.get('/admin/student/import', adminCtrl.showAdminStudentImport) //import pane
 app.post('/admin/student/import', adminCtrl.doAdminStudentImport) //submit form
 app.get('/student', adminCtrl.getAllStudents)//get all students info
 app.post('/student/:sId', adminCtrl.updateOneStudent) //update student info
+app.post('/student', adminCtrl.addOneStudent) //add one student
+app.checkout('/student/:sId', adminCtrl.checkStudentId) //check whether student id exists
 
 //error page
 app.use((req,res)=>{

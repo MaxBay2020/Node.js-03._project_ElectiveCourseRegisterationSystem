@@ -95,7 +95,23 @@ exports.doAdminStudentImport = (req,res)=>{
 
 //load all students to list
 exports.getAllStudents = (req,res)=>{
-    Student.find({}, (err, students) =>{
+    let keywordSName = req.query.keywordSName
+    let findFilter = {}
+
+    //根据是否有查询字符串判断
+    if(keywordSName !== undefined && keywordSName!==''){
+        //有查询字符串时
+        //用正则构造函数，将字符串转成正则对象
+        let regexpSName= new RegExp(keywordSName, 'gi')
+        //过滤条件
+        findFilter = {
+            $or: [
+                {sName: regexpSName}
+            ]
+        }
+    }
+
+    Student.find(findFilter, (err, students) =>{
         res.send(students)
     })
 }
@@ -119,6 +135,43 @@ exports.updateOneStudent = (req,res) =>{
                 return res.send('1') //1 update successfully
             })
         })
+
+    })
+}
+
+exports.addOneStudent = (req,res) => {
+    const form = formidable({ multiples: true, uploadDir: './uploads', keepExtensions: true })
+    form.parse(req, (err, fields) => {
+        if(err){
+            return res.send('-2') //-1 server error
+        }
+        let student = new Student({
+            sId: fields.sId,
+            sName: fields.sName,
+            sGrade: fields.sGrade,
+            sPassword:fields.sPassword
+        })
+
+        student.save((err) => {
+            if(err){
+                return res.send('-2') //-1 server error
+            }
+
+            return res.send('1') //1 add successfully
+        })
+    })
+}
+
+exports.checkStudentId = (req,res) => {
+    Student.find({sId:req.params.sId}, (err, students) => {
+        if(err){
+            return res.send('-2') //-2 server error
+        }
+        if(students.length===0){
+            return res.send('-1') //-1 no such student
+        }else{
+            return res.send('1') //1 student exists
+        }
 
     })
 }

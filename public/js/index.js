@@ -75,7 +75,6 @@ function pageInit(){
 							});
 						}
 					})
-
 				}
 			})
 
@@ -83,4 +82,17 @@ function pageInit(){
 	/*创建jqGrid的操作按钮容器*/
 	/*可以控制界面上增删改查的按钮是否显示*/
 	jQuery("#list").jqGrid('navGrid', '#pager', {edit : false,add : false,del : false})
+
+	//input输入改变实时更新结果
+	$('#keywordSName').bind('input', () => {
+		let keywordSName = $('#keywordSName').val()
+
+		//实时查询结果
+		$("#list").jqGrid('setGridParam',{  // 重新加载数据
+			datatype:'json',
+			postData: {keywordSName: keywordSName}, //查询条件
+			page:1
+		}).trigger("reloadGrid") //触发表格重新刷新
+	})
 }
+
