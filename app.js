@@ -3,6 +3,8 @@ const app = express()
 const mongoose = require('mongoose')
 const mongoDBURI = require('./config/mongodb')
 const session = require('express-session')
+const adminStudentCtrl = require('./controllers/adminStudentCtrl')
+const adminCourseCtrl = require('./controllers/adminCourseCtrl')
 const adminCtrl = require('./controllers/adminCtrl')
 const expressLayouts = require('express-ejs-layouts')
 
@@ -29,18 +31,30 @@ app.use(expressLayouts)
 /***
  * RESTful routes
  */
+/***
+ * admin contrller
+ */
 app.get     ('/admin', adminCtrl.showAdminDashboard) //admin panel shows
-app.get     ('/admin/student', adminCtrl.showAdminStudent) //student panel shows
-app.get     ('/admin/course', adminCtrl.showAdminCourse) //course panel shows
 app.get     ('/admin/report', adminCtrl.showAdminReport) //report panel shows
-app.get     ('/admin/student/import', adminCtrl.showAdminStudentImport) //import panel shows
-app.post    ('/admin/student/import', adminCtrl.doAdminStudentImport) //submit form
-app.get     ('/admin/student/download', adminCtrl.downloadStudentsXlsx) //download all students xlsx
-app.get     ('/student', adminCtrl.getAllStudents)//get all students info
-app.post    ('/student', adminCtrl.addOneStudent) //add one student
-app.delete  ('/student', adminCtrl.removeSelectedStudents) //remove selected students
-app.checkout('/student/:sId', adminCtrl.checkStudentExists) //check whether student id exists
-app.post    ('/student/:sId', adminCtrl.updateOneStudent) //update student info
+/***
+ * adminStudent controller
+ */
+app.get     ('/admin/student', adminStudentCtrl.showAdminStudent) //student panel shows
+app.get     ('/admin/student/import', adminStudentCtrl.showAdminStudentImport) //import student panel shows
+app.post    ('/admin/student/import', adminStudentCtrl.doAdminStudentImport) //submit form
+app.get     ('/admin/student/download', adminStudentCtrl.downloadStudentsXlsx) //download all students xlsx
+app.get     ('/student', adminStudentCtrl.getAllStudents)//get all students info
+app.post    ('/student', adminStudentCtrl.addOneStudent) //add one student
+app.delete  ('/student', adminStudentCtrl.removeSelectedStudents) //remove selected students
+app.checkout('/student/:sId', adminStudentCtrl.checkStudentExists) //check whether student id exists
+app.post    ('/student/:sId', adminStudentCtrl.updateOneStudent) //update student info
+
+/***
+ * adminCourse controller
+ */
+app.get     ('/admin/course', adminCourseCtrl.showAdminCourse) //course panel shows
+app.get     ('/admin/course/import', adminCourseCtrl.showAdminCourseImport) //import course panel shows
+app.post    ('/admin/course/import', adminCourseCtrl.doAdminCourseImport) //submit form
 
 
 //error page

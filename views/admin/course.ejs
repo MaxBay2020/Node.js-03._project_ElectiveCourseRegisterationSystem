@@ -1,4 +1,25 @@
 
+<!-- jqGrid组件基础样式包-必要 -->
+<!--<link rel="stylesheet" href="/public/css/ui.jqgrid.css" />-->
+
+<!-- jqGrid主题包-非必要 -->
+<!-- 在jqgrid/css/css这个目录下还有其他的主题包，可以尝试更换看效果 -->
+<!--<link rel="stylesheet" href="/public/css/jquery-ui-1.8.16.custom.css" />-->
+<script src="/public/js/jquery.min.js"></script>
+
+
+
+<!--&lt;!&ndash; jqGrid插件包-必要 &ndash;&gt;-->
+<!--<script src="/public/js/jquery.jqGrid.src.js"></script>-->
+
+<!--&lt;!&ndash; jqGrid插件的多语言包-非必要 &ndash;&gt;-->
+<!--&lt;!&ndash; 在jqgrid/js/i18n下还有其他的多语言包，可以尝试更换看效果 &ndash;&gt;-->
+<!--<script type="text/javascript" src="/public/js/grid.locale-en.js"></script>-->
+
+<!--&lt;!&ndash; 本页面初始化用到的js包，创建jqGrid的代码就在里面 &ndash;&gt;-->
+<!--<script type="text/javascript" src="/public/js/index.js"></script>-->
+
+<link rel="stylesheet" href="/public/css/spop.css">
 <%- include('./partials/sidebar'); %>
 
 <div class="main-content" id="panel">
@@ -7,6 +28,7 @@
         <div class="container-fluid">
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Navbar links -->
+                <%- include('./partials/title'); %>
                 <ul class="navbar-nav align-items-center  ml-md-auto ">
                     <li class="nav-item d-xl-none">
                         <!-- Sidenav toggler -->
@@ -66,94 +88,27 @@
                     <div class="card-header border-0">
                         <div class="row align-items-center">
                             <div class="col">
-                                <h3 class="mb-0">Page visits</h3>
+                                <h3 class="mb-0 active">Courses list</h3>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <a class="btn btn-primary btn-sm" href="/admin/course/import">Import courses</a>
+                                        <a href="javascript:void(0)" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addCourse">Add course</a>
+                                        <a href="javascript:void(0)" id="delBtn" class="btn btn-danger btn-sm">Delete</a>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <input width="10px" autofocus id="keywordSName" class="form-control form-control-sm" type="text" placeholder="Please enter keyword" name="keywordSName">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <a href="javascript:void(0)" id="downloadBtn" class="btn btn-success btn-sm">Download</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="table-responsive">
                         <!-- Projects table -->
-                        <table class="table align-items-center table-flush">
-                            <thead class="thead-light">
-                            <tr>
-                                <th scope="col">Page name</th>
-                                <th scope="col">Visitors</th>
-                                <th scope="col">Unique users</th>
-                                <th scope="col">Bounce rate</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <th scope="row">
-                                    /argon/
-                                </th>
-                                <td>
-                                    4,569
-                                </td>
-                                <td>
-                                    340
-                                </td>
-                                <td>
-                                    <i class="fas fa-arrow-up text-success mr-3"></i> 46,53%
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    /argon/index.html
-                                </th>
-                                <td>
-                                    3,985
-                                </td>
-                                <td>
-                                    319
-                                </td>
-                                <td>
-                                    <i class="fas fa-arrow-down text-warning mr-3"></i> 46,53%
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    /argon/charts.html
-                                </th>
-                                <td>
-                                    3,513
-                                </td>
-                                <td>
-                                    294
-                                </td>
-                                <td>
-                                    <i class="fas fa-arrow-down text-warning mr-3"></i> 36,49%
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    /argon/tables.html
-                                </th>
-                                <td>
-                                    2,050
-                                </td>
-                                <td>
-                                    147
-                                </td>
-                                <td>
-                                    <i class="fas fa-arrow-up text-success mr-3"></i> 50,87%
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    /argon/profile.html
-                                </th>
-                                <td>
-                                    1,795
-                                </td>
-                                <td>
-                                    190
-                                </td>
-                                <td>
-                                    <i class="fas fa-arrow-down text-danger mr-3"></i> 46,53%
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
+                        <table id="list"></table>
+                        <div id="pager"></div>
                     </div>
                 </div>
             </div>
@@ -161,3 +116,62 @@
     </div>
 </div>
 
+<!--模态框-->
+<div class="modal fade" id="addCourse" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add new course</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <div class="form-group">
+                    <label for="sId" class="col-form-label">Student ID:</label>
+                    <input checkValid placeholder="Please enter student ID" name="sId" type="text" class="form-control" id="sId">
+                </div>
+                <div hidden id="sIdTip" class="myTip alert" role="alert"></div>
+
+
+                <div class="form-group">
+                    <label for="sName" class="col-form-label">Student Name:</label>
+                    <input checkValid placeholder="Please enter student name" type="text" name="sName" class="form-control" id="sName">
+                </div>
+                <div hidden id="sNameTip" class="myTip alert" role="alert"></div>
+
+
+                <div class="form-group">
+                    <label class="col-form-label">Student Grade:</label>
+                    <select checkValid class="form-control" name="sGrade" id="sGrade">
+                        <option value="pleaseSelect">Please select</option>
+                        <option value="M1">M1</option>
+                        <option value="M1">M2</option>
+                        <option value="M1">M3</option>
+                        <option value="M1">H1</option>
+                        <option value="M1">H2</option>
+                        <option value="M1">H3</option>
+                    </select>
+                </div>
+                <div hidden id="sGradeTip" class="myTip alert" role="alert"></div>
+
+
+                <div class="form-group">
+                    <label for="sPassword" class="col-form-label">Initial Password:</label>
+                    <input checkValid placeholder="Please enter student initial password" type="text" name="sPassword" class="form-control" id="sPassword">
+                </div>
+                <div hidden id="sPasswordTip" class="myTip alert" role="alert"></div>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button disabled type="button" class="btn btn-primary" id="submitBtn">Add</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/public/js/spop.js"></script>
+<!--<script src="/public/js/addStudent.js"></script>-->

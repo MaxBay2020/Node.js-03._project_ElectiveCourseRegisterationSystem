@@ -2,13 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6cc9fd87-171d-40a4-9cb8-852ee18ebb63" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/controllers/adminCourseCtrl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/adminStudentCtrl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/Course.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/admin/course/import.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/adminCtrl.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/adminCtrl.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/addStudent.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/addStudent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/student.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/student.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Student.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Student.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/upload_148284ba4d9560330850345753f1620f.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/upload_2ccb7f610ca6d64f04cd60ba25a52ff1.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/upload_37f0115421718b76fa440a119ff9fd0d.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/upload_4b9b00367786d1bdf63b038f189db80e.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/upload_4c4f6b380b846a9fc03ba44e809cd522.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/upload_5b1d030b4f3050764cbc690794c156d2.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/upload_6256b4d88579782bfd1d77e5c86dc7a7.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/upload_676875fa35eea110f627a28105581b96.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/upload_75d4b0a8551e1e6025bb4b6d81ca653d.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/upload_7c78dab84ed5375e1b0ca76e7318d561.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/upload_9f10f86712bc0c0e3c9477b925341d50.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/upload_ca32738619dcc153e764c7b026be2927.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/upload_d59a4846ee535924272a3cce065867e9.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/upload_e1c0696c82cdf8fe0ecc3a694757bd96.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploads/upload_fd34b305651aa2048e5c88fd3abe1504.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/admin/course.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/course.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/admin/student/studentImport.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/student/import.ejs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,7 +54,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/models" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -50,11 +68,11 @@
       <recent name="$PROJECT_DIR$/public/js" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/models" />
+      <recent name="$PROJECT_DIR$/views/admin" />
       <recent name="$PROJECT_DIR$/public/js" />
       <recent name="$PROJECT_DIR$/public/css" />
       <recent name="$PROJECT_DIR$/public" />
-      <recent name="$PROJECT_DIR$/public/js/tipTool" />
-      <recent name="$PROJECT_DIR$/public/css/tipTool" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -81,7 +99,7 @@
       <updated>1603843691751</updated>
       <workItem from="1603843693728" duration="1963000" />
       <workItem from="1603978378759" duration="26586000" />
-      <workItem from="1604017239072" duration="59950000" />
+      <workItem from="1604017239072" duration="65382000" />
     </task>
     <servers />
   </component>

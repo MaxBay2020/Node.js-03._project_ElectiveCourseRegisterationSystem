@@ -14,7 +14,6 @@ const studentSchema = new Schema({
 studentSchema.statics.importStudents = function(workSheetsFromFile){
     let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789~!@#$%^&*()_"
     //存学生前要先删除集合
-    // mongoose.connection.db.dropCollection('students');
     Student.remove({}, () => {
         console.log('remove done')
     })
