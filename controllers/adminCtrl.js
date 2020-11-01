@@ -1,12 +1,12 @@
 exports.showAdminDashboard = (req,res) => {
     res.render('./admin/index', {
-        page: 'index'
+        page: 'Index'
     })
 }
 
 
 exports.showAdminReport = (req,res)=>{
     res.render('./admin/report', {
-        page:'report'
+        page:'Report'
     })
 }

@@ -46,7 +46,6 @@ function pageInit(){
 					var sName= rowData.sName; //获得指定列的值 （sId 为colModel的name)
 					var sGrade= rowData.sGrade; //获得指定列的值 （sId 为colModel的name)
 					//取得学号，发送ajax之后入库
-					console.log(sId, sName, sGrade)
 					$.post('/student/'+sId,{
 						sName:sName,
 						sGrade:sGrade
@@ -84,13 +83,13 @@ function pageInit(){
 	jQuery("#list").jqGrid('navGrid', '#pager', {edit : false,add : false,del : false})
 
 	//input输入改变实时更新结果
-	$('#keywordSName').bind('input', () => {
-		let keywordSName = $('#keywordSName').val()
+	$('#keywords').bind('input', () => {
+		let keywords = $('#keywords').val()
 
 		//实时查询结果
 		$("#list").jqGrid('setGridParam',{  // 重新加载数据
 			datatype:'json',
-			postData: {keywordSName: keywordSName}, //查询条件
+			postData: {keywords: keywords}, //查询条件
 			page:1
 		}).trigger("reloadGrid") //触发表格重新刷新
 	})

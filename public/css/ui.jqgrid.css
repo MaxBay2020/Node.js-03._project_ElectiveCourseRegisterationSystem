@@ -180,8 +180,8 @@ tr.ui-search-toolbar select {
 
 .ui-jqgrid tr.jqgrow td {
 	font-weight: normal;
-	overflow: hidden;
-	white-space: pre;
+	/*overflow: hidden;*/
+	/*white-space: pre;*/
 	height: 30px;
 	padding: 0 2px 0 2px;
 	border-bottom-width: 1px;

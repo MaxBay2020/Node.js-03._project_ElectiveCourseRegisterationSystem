@@ -39,7 +39,7 @@ app.get     ('/admin/report', adminCtrl.showAdminReport) //report panel shows
 /***
  * adminStudent controller
  */
-app.get     ('/admin/student', adminStudentCtrl.showAdminStudent) //student panel shows
+app.get     ('/admin/student', adminStudentCtrl.showAdminStudent) //students panel shows
 app.get     ('/admin/student/import', adminStudentCtrl.showAdminStudentImport) //import student panel shows
 app.post    ('/admin/student/import', adminStudentCtrl.doAdminStudentImport) //submit form
 app.get     ('/admin/student/download', adminStudentCtrl.downloadStudentsXlsx) //download all students xlsx
@@ -52,7 +52,8 @@ app.post    ('/student/:sId', adminStudentCtrl.updateOneStudent) //update studen
 /***
  * adminCourse controller
  */
-app.get     ('/admin/course', adminCourseCtrl.showAdminCourse) //course panel shows
+app.get     ('/admin/course', adminCourseCtrl.showAdminCourse) //courses management panel shows
+app.get     ('/course', adminCourseCtrl.getAllCourses) //get all courses
 app.get     ('/admin/course/import', adminCourseCtrl.showAdminCourseImport) //import course panel shows
 app.post    ('/admin/course/import', adminCourseCtrl.doAdminCourseImport) //submit form
 

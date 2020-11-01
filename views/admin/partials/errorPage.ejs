@@ -68,13 +68,18 @@
                     <div class="card-header border-0">
                         <div class="row align-items-center">
                             <div class="col">
-                                <h3 class="mb-0 active">Import students</h3>
-                                <a class="btn btn-primary btn-sm" href="/admin/student">Students list</a>
+                                <h3 class="mb-0 active">Import <% if(page === 'Students'){ %>
+                                        students
+                                    <% }else if(page === 'Courses'){ %>
+                                        courses
+                                    <% } %></h3>
+                                <a class="btn btn-primary btn-sm" href="<% if(page==='Students'){ %>
+                                    /admin/student
+                                <% }else if(page === 'Courses'){ %>
+                                    /admin/course
+                                <% } %>"><%= page %> list</a>
                             </div>
                         </div>
-                    </div>
-                    <div class="col">
-                        <h3 class="mb-0 active">Please import Excel file</h3>
                     </div>
                     <br>
                     <div class="row">

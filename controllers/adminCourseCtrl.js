@@ -9,7 +9,7 @@ const Course = require('../models/Course')
  */
 exports.showAdminCourse = (req,res) => {
     res.render('admin/course', {
-        page: 'course'
+        page: 'Courses'
     })
 }
 
@@ -18,7 +18,7 @@ exports.showAdminCourse = (req,res) => {
  */
 exports.showAdminCourseImport = (req,res) => {
     res.render('admin/course/import', {
-        page: 'course'
+        page: 'Courses'
     })
 }
 
@@ -39,16 +39,42 @@ exports.doAdminCourseImport = (req,res) => {
             Course.insertMany(uploadedCourses.courses, (err, data) => {
                 if(err){
                     return res.render('admin/partials/errorPage', {
-                        'page': 'course',
+                        'page': 'Courses',
                         'tip': 'Oops! Uploaded failed'
                     })
                 }
 
                 return res.render('admin/partials/errorPage', {
-                    'page': 'course',
+                    'page': 'Courses',
                     'tip': 'Upload successfully. You have insert '+data.length+' courses into database.'
                 })
             })
         })
+    })
+}
+
+//load all courses to list
+exports.getAllCourses = (req,res)=>{
+    let keywords = req.query.keywords
+    let findFilter = {}
+
+    //根据是否有查询字符串判断
+    if(keywords !== undefined && keywords!==''){
+        //有查询字符串时
+        //用正则构造函数，将字符串转成正则对象
+        let regexp= new RegExp(keywords, 'gi')
+        //过滤条件
+        findFilter = {
+            $or: [
+                {cId: regexp},
+                {cName: regexp},
+                {cTeacher: regexp},
+                {cBriefintro: regexp}
+            ]
+        }
+    }
+
+    Course.find(findFilter, (err, courses) =>{
+        res.send(courses)
     })
 }

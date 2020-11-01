@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const { Schema } = mongoose
 
 const courseSchema = new Schema({
-    cid             : String,
+    cId             : String,
     cName           : String,
     cDayofweek      : String,
     cNumber         : Number,

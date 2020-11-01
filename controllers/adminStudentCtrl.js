@@ -9,19 +9,19 @@ const dateFormat = require('date-format')
 /*student panel controllers start*/
 exports.showAdminStudent = (req,res)=>{
     res.render('./admin/student', {
-        page:'student'
+        page:'Students'
     })
 }
 
 exports.showAdminStudentImport = (req,res)=>{
     res.render('./admin/student/import', {
-        page:'student'
+        page:'Students'
     })
 }
 
 exports.showAdminStudentExport = (req,res)=>{
     res.render('./admin/student/studentExport', {
-        page:'student'
+        page:'Students'
     })
 }
 /*student panel controllers end*/
@@ -32,7 +32,7 @@ exports.doAdminStudentImport = (req,res)=>{
         //检查扩展名是不是为xlsx
         if(path.extname(files.studentExcel.name) !== '.xlsx'){
             res.render('admin/partials/errorPage', {
-                'page': 'student',
+                'page': 'Students',
                 'tip': 'Sorry, the type of uploaded file is incorrect'
             })
 
@@ -50,7 +50,7 @@ exports.doAdminStudentImport = (req,res)=>{
         //子表是否齐全，应该是6个子表
         if(workSheetsFromFile.length !== 6){
             return res.render('admin/partials/errorPage', {
-                'page': 'student',
+                'page': 'Students',
                 'tip': 'The excel file lacks of sub-forms'
             })
             // return res.send('The excel file lacks of sub-forms')
@@ -61,7 +61,7 @@ exports.doAdminStudentImport = (req,res)=>{
                 workSheetsFromFile[i].data[0][1]!=='姓名'
             ){
                 return res.render('admin/partials/errorPage', {
-                    'page': 'student',
+                    'page': 'Students',
                     'tip': 'The format of sub-form '+(i+1)+' is incorrect. Please make sure there are studentId, studentName on the top of each sub-form'
                 })
             }
@@ -70,7 +70,7 @@ exports.doAdminStudentImport = (req,res)=>{
         //此时，文件是合法的，命令mongoose，将数据存储到db中
         Student.importStudents(workSheetsFromFile)
         return res.render('admin/partials/errorPage', {
-            'page': 'student',
+            'page': 'Students',
             'tip': 'Upload successfully'
         })
 
@@ -79,18 +79,20 @@ exports.doAdminStudentImport = (req,res)=>{
 
 //load all students to list
 exports.getAllStudents = (req,res)=>{
-    let keywordSName = req.query.keywordSName
+    let keywords = req.query.keywords
     let findFilter = {}
 
     //根据是否有查询字符串判断
-    if(keywordSName !== undefined && keywordSName!==''){
+    if(keywords !== undefined && keywords!==''){
         //有查询字符串时
         //用正则构造函数，将字符串转成正则对象
-        let regexpSName= new RegExp(keywordSName, 'gi')
+        let regexp= new RegExp(keywords, 'gi')
         //过滤条件
         findFilter = {
             $or: [
-                {sName: regexpSName}
+                {sId: regexp},
+                {sName: regexp},
+                {sGrade: regexp}
             ]
         }
     }
