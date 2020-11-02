@@ -6,6 +6,7 @@ const session = require('express-session')
 const adminStudentCtrl = require('./controllers/adminStudentCtrl')
 const adminCourseCtrl = require('./controllers/adminCourseCtrl')
 const adminCtrl = require('./controllers/adminCtrl')
+const mainCtrl = require('./controllers/mainCtrl')
 const expressLayouts = require('express-ejs-layouts')
 
 
@@ -24,7 +25,7 @@ app.use(session({
 app.set('view engine', 'ejs')
 app.use('/public', express.static(__dirname+'/public'))
 app.use('/node_modules', express.static(__dirname+'/node_modules'))
-app.set('layout','./admin/layouts/layout1')
+app.set('layout','./layouts/layout1')
 app.use(expressLayouts)
 
 
@@ -36,6 +37,7 @@ app.use(expressLayouts)
  */
 app.get     ('/admin', adminCtrl.showAdminDashboard) //admin panel shows
 app.get     ('/admin/report', adminCtrl.showAdminReport) //report panel shows
+
 /***
  * adminStudent controller
  */
@@ -59,6 +61,16 @@ app.post    ('/admin/course/import', adminCourseCtrl.doAdminCourseImport) //subm
 app.post    ('/admin/course/', adminCourseCtrl.updateOneCourse) //update course info
 app.delete  ('/course', adminCourseCtrl.removeSelectedCourses) //remove selected courses
 app.post    ('/course', adminCourseCtrl.addOneCourse) //remove selected courses
+
+/**
+ *main controller
+ */
+app.get     ('/login', mainCtrl.showLogin) //show login page
+app.post    ('/login', mainCtrl.doLogin) //handle login
+app.get     ('/', mainCtrl.showIndex) //show course registration table
+app.get     ('/logout', mainCtrl.doLogout) //logout
+app.get     ('/changePassword', mainCtrl.showChangePassword)//show change password page
+app.post     ('/changePassword', mainCtrl.doChangePassword)//do change password
 
 
 //error page

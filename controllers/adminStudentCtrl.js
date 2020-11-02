@@ -79,6 +79,11 @@ exports.doAdminStudentImport = (req,res)=>{
 
 //load all students to list
 exports.getAllStudents = (req,res)=>{
+    ////登陆验证，如果session中没有login，则重定向到登陆页面
+    // if(!req.session.login){
+    //     return res.redirect('/login')
+    // }
+
     let keywords = req.query.keywords
     let findFilter = {}
 

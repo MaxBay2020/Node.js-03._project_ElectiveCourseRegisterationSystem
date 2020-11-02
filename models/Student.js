@@ -7,7 +7,7 @@ const studentSchema = new Schema({
     'sName': String,
     'sGrade': String,
     'sPassword': String,
-    'ChangedPassword': {type: Boolean, default: false}
+    'changedPassword': {type: Boolean, default: false}
 })
 
 /*import into db*/

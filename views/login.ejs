@@ -1,0 +1,121 @@
+<body class="bg-default">
+  <!-- Navbar -->
+  <nav id="navbar-main" class="navbar navbar-horizontal navbar-transparent navbar-main navbar-expand-lg navbar-light">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="/public/images/schoolLogo.png">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse navbar-custom-collapse collapse" id="navbar-collapse">
+        <div class="navbar-collapse-header">
+          <div class="row">
+            <div class="col-6 collapse-brand">
+              <a href="dashboard.html">
+                <img src="../assets/img/brand/blue.png">
+              </a>
+            </div>
+            <div class="col-6 collapse-close">
+              <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a href="dashboard.html" class="nav-link">
+              <span class="nav-link-inner--text">Register Courses</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="login.html" class="nav-link">
+              <span class="nav-link-inner--text">My courses</span>
+            </a>
+          </li>
+        </ul>
+        <hr class="d-lg-none" />
+      </div>
+    </div>
+  </nav>
+  <!-- Main content -->
+  <div class="main-content">
+    <!-- Header -->
+    <div class="header bg-gradient-primary py-7 py-lg-8 pt-lg-9">
+      <div class="container">
+        <div class="header-body text-center mb-7">
+          <div class="row justify-content-center">
+            <div class="col-xl-5 col-lg-6 col-md-8 px-5">
+              <h1 class="text-white">Welcome!</h1>
+              <h2 class="text-lead text-white">NO.9 Middle School of Baotou</h2>
+              <h4 class="text-lead text-white">Selective Course Registration System</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="separator separator-bottom separator-skew zindex-100">
+        <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
+        </svg>
+      </div>
+    </div>
+    <!-- Page content -->
+    <div class="container mt--8 pb-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-5 col-md-7">
+          <div class="card bg-secondary border-0 mb-0">
+            <div class="card-body px-lg-5 py-lg-5">
+              <form role="form">
+                <div id="tip" class="alert" role="alert" hidden> </div>
+                <div class="form-group mb-3">
+                  <div class="input-group input-group-merge input-group-alternative">
+                    <input name="sId" class="form-control" placeholder="Student ID" type="text" id="sId">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group input-group-merge input-group-alternative">
+                    <input name="sPassword" class="form-control" placeholder="Password" type="password" id="sPassword">
+                  </div>
+                </div>
+                <div class="custom-control custom-control-alternative custom-checkbox">
+                  <input class="custom-control-input" id=" customCheckLogin" type="checkbox">
+                  <label class="custom-control-label" for=" customCheckLogin">
+                    <span class="text-muted">Remember me</span>
+                  </label>
+                </div>
+                <div class="text-center">
+                  <button type="button" class="btn btn-primary my-4" id="loginBtn">Login</button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-6">
+              <a href="#" class="text-light"><small>Forgot password?</small></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Footer -->
+  <footer class="py-5" id="footer-main">
+    <div class="container">
+      <div class="row align-items-center justify-content-xl-between">
+        <div class="col-xl-6">
+        </div>
+        <div class="col-xl-6">
+          <ul class="nav nav-footer justify-content-center justify-content-xl-end">
+            <li class="nav-item">
+              <a href="https://baike.baidu.com/item/%E5%8C%85%E5%A4%B4%E5%B8%82%E7%AC%AC%E4%B9%9D%E4%B8%AD%E5%AD%A6/7663420?fr=aladdin" class="nav-link" target="_blank">About Us</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+  <script src="/public/js/jquery.min.js"></script>
+  <script src="/public/js/login.js"></script>
