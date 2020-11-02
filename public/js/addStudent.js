@@ -136,7 +136,7 @@ $('#submitBtn').click(() => {
             }
             //提示框消失
             $('.myTip').attr('hidden', true)
-        } else if(data==='-1'){
+        } else if(data==='0'){
             //-1 add successfully
             spop({
                 template: 'Add successfully',

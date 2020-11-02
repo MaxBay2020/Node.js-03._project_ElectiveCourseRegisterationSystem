@@ -13,7 +13,7 @@ function pageInit(){
 				datatype : "json",//请求数据返回的类型。可选json,xml,txt
 				colNames : [ "ID", "Name", "Day of week", 'Remain', 'Limit', 'Instructor', 'Brief Intro'],//jqGrid的列显示名字
 				colModel : [ //jqGrid每一列的配置信息。包括名字，索引，宽度,对齐方式.....
-				             {name : 'cId',index : 'cId',width : 5, align: 'center'},
+				             {name : 'cId',index : 'cId',width : 5, align: 'center', key : true}, //需要设置key:true，否则不能传到后台
 				             {name : 'cName',index : 'cName',width : 25, editable: true, align: 'center'},
 				             {name : 'cDayofweek',index : 'cDayofweek',width : 15, editable: true, align: 'center', edittype: 'select', editoptions: {value:'Monday:Monday;Tuesday:Tuesday;Wednesday:Wednesday;Thursday:Thursday;Friday:Friday;'}},
 				             {name : 'cNumber',index : 'cNumber',width : 5, editable: true, align: 'center'},
@@ -32,6 +32,7 @@ function pageInit(){
 				viewrecords : true, //表格右下角显示记录数，如View 1 - 10 of 15
 				// caption : "JSON Example"//表格的标题名字
 				multiselect: true, //可以选择条目
+				multiboxonly:true,
 				autowidth: true, //填充满表格宽度
 				scrollOffset: 2, //如果不设置，表格右边会空出来18px留给滚动条；设置2为刚刚好让滚动条宽度消失，最为美观
 				pgbuttons: true,
@@ -46,55 +47,12 @@ function pageInit(){
 						lastsel3 = id;
 					}
 				},
-				afterSaveCell: function (rowId,columnName,value,iRow,iCol){
-					//确定改变后获得学号和新值
-					//下面这种写法，当换页时，会获取不到新页面的id
-					// let sId = $('#list').getCell(iRow, 0)
-					// console.log(sId,columnName,value,iRow,iCol)
-					//下面这种方法好用！
-					var id = $("#list").jqGrid('getGridParam','selrow');//根据点击行获得点击行的id（id为jsonReader: {id: "id" },）
-					var rowData = $("#list").jqGrid("getRowData",id);//根据上面的id获得本行的所有数据
-					var cId= rowData.cId; //获得指定列的值 （sId 为colModel的name)
-					var cName= rowData.cName; //获得指定列的值 （sId 为colModel的name)
-					var cDayofweek= rowData.cDayofweek; //获得指定列的值 （sId 为colModel的name)
-					var cNumber= rowData.cNumber; //获得指定列的值 （sId 为colModel的name)
-					var cAllow= rowData.cAllow; //获得指定列的值 （sId 为colModel的name)
-					var cTeacher= rowData.cTeacher; //获得指定列的值 （sId 为colModel的name)
-					var cBriefintro= rowData.cBriefintro; //获得指定列的值 （sId 为colModel的name)
-					//取得学号，发送ajax之后入库
-					$.post('/course/'+cId,{
-						cName:cName,
-						cDayofweek: cDayofweek,
-						cNumber: cNumber,
-						cAllow: cAllow,
-						cTeacher: cTeacher,
-						cBriefintro: cBriefintro
-					}, (data) => {
-						if(data==='1'){
-							spop({
-								template: 'Success',
-								autoclose: 2000,
-								position  : 'top-right',
-								style: 'success',
-								group: 'submit-satus',
-							});
-						}else if(data==='-1'){
-							spop({
-								template: "No such student with id:"+sId+"in the database. It may be modified by another teacher. Please refresh page.",
-								position  : 'top-right',
-								style: 'error',
-								group: 'submit-satus',
-							});
-						}else if(data==='-2'){
-							spop({
-								template: "Server error. Please contact admin. Error code: -2",
-								position  : 'top-right',
-								style: 'error',
-								group: 'submit-satus',
-							});
-						}
-					})
-				}
+
+				// //当开始编辑的时候，不用before事件，而用after事件
+				// afterEditCell: function(rowid, cellname, value, iRow, iCol){
+				// 	allowChoose(rowid)
+				// },
+
 			})
 
 	jQuery('#list').jqGrid('inlineNav', '#pager')
@@ -119,26 +77,27 @@ function pageInit(){
 
 		//参考：https://www.jb51.net/article/50202.htm
 		let selrow =$("#list").getGridParam('selarrrow');//获取多行的id
-		let sIds=[];//初始化一个数组，用来存放选中的sId值
+		let cIds=[];//初始化一个数组，用来存放选中的sId值
+
 		$(selrow).each(function (index, value) {//遍历每个id 找到每个data 并把属性加到初始化数组里
 			let rowData = $("#list").jqGrid("getRowData", value);
-			sIds.push(rowData.sId);
+			cIds.push(rowData.cId);
 		});
 
-		if(prompt('You are trying to delete '+sIds.length+ ' students.\r\nPlease enter \'delete selected students\' to confirm: ') !== 'delete selected students'){
-			swal("Prompt!", "You did not remove any students", "info");
+		if(prompt('You are trying to delete '+cIds.length+ ' courses.\r\nPlease enter \'delete selected courses\' to confirm: ') !== 'delete selected courses'){
+			swal("Prompt!", "You did not remove any courses", "info");
 			return
 		}else{
 			//发送ajax删除选中的学生信息
 			$.ajax({
 				type: 'delete',
-				url: '/student',
-				data: {sIds: sIds},
+				url: '/course',
+				data: {cIds: cIds},
 				traditional: true,
 				success: (data) => {
 					if(data==='1'){
 						//1 delete successfully
-						swal("Good job!", "You have delete "+sIds.length+" students!", "success");
+						swal("Good job!", "You have delete "+cIds.length+" courses!", "success");
 						//重新加载数据
 						//实时查询结果
 						$("#list").jqGrid('setGridParam',{  // 重新加载数据
@@ -148,7 +107,7 @@ function pageInit(){
 
 					}else if(data==='-1'){
 						//0 delete failed
-						swal("Oops!", "Please select students first!", "info");
+						swal("Oops!", "Please select courses first!", "info");
 					}else if(data==='-2'){
 						//-2 server error
 						swal("Oops!", "Server error. Please contact admin. Error code: -2!", "error");

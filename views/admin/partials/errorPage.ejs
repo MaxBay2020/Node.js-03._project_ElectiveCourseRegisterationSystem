@@ -87,8 +87,14 @@
                         <div class="jumbotron jumbotron-fluid col-md-10">
                             <div class="container">
                                 <h1 class="display-4">Instructions:</h1>
-                                <p class="lead">Every grade is a subform</p>
-                                <p class="lead">In every subform, the column is sudentId, name, and gender</p>
+                                <p class="lead"><% if(page==='Students'){ %>
+                                        Every grade is a subform
+                                    <% }else if(page==='Courses'){ %>
+                                        Please submit JSON format file
+                                    <% } %></p>
+                                <p class="lead"><% if(page==='Students'){ %>
+                                        In every subform, the column is sudentId, name, and gender
+                                    <% } %></p>
                                 <h2><%= tip %></h2>
                             </div>
                         </div>

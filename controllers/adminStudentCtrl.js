@@ -138,27 +138,27 @@ exports.addOneStudent = (req,res) => {
                 return res.send('-2') //-2 server error
             }
             if(students.length===0){
-                return res.send('-1') //-1 no such student
+                let student = new Student({
+                    sId: fields.sId,
+                    sName: fields.sName,
+                    sGrade: fields.sGrade,
+                    sPassword:fields.sPassword
+                })
+
+                student.save((err) => {
+                    if(err){
+                        return res.send('-2') //-1 server error
+                    }
+
+                    return res.send('0') ////0 no such student
+                })
             }else{
                 return res.send('1') //1 student exists
             }
 
         })
 
-        let student = new Student({
-            sId: fields.sId,
-            sName: fields.sName,
-            sGrade: fields.sGrade,
-            sPassword:fields.sPassword
-        })
 
-        student.save((err) => {
-            if(err){
-                return res.send('-2') //-1 server error
-            }
-
-            return res.send('1') //1 add successfully
-        })
     })
 }
 

@@ -67,6 +67,7 @@ exports.getAllCourses = (req,res)=>{
         findFilter = {
             $or: [
                 {cId: regexp},
+                {cDayofweek: regexp},
                 {cName: regexp},
                 {cTeacher: regexp},
                 {cBriefintro: regexp}
@@ -76,5 +77,101 @@ exports.getAllCourses = (req,res)=>{
 
     Course.find(findFilter, (err, courses) =>{
         res.send(courses)
+    })
+}
+
+/**
+ * update one course
+ */
+exports.updateOneCourse = (req,res) =>{
+    const form = formidable({ multiples: true, uploadDir: './uploads', keepExtensions: true });
+    form.parse(req, (err, fields) => {
+        if(err){
+            return res.send('0')
+        }
+        console.log(typeof fields.cAllow)
+
+        Course.find({cId:fields.cId}, (err,courses) => {
+            if(err){
+                return res.send('-2') //-2 server error
+            }else if(courses.length!==1){
+                return res.send('-1') //-1 no such course
+            }
+
+            courses[0].cName = fields.cName
+            courses[0].cDayofweek = fields.cDayofweek
+            courses[0].cNumber = fields.cNumber
+            courses[0].cAllow = fields.cAllow.split(',')
+            console.log(fields.cAllow.split(','))
+            courses[0].cTeacher = fields.cTeacher
+            courses[0].cBriefintro = fields.cBriefintro
+
+            courses[0].save().then(()=>{
+                return res.send('1') //1 update successfully
+            })
+        })
+
+    })
+}
+
+/**
+ * remove selected courses
+ */
+exports.removeSelectedCourses = (req,res) => {
+    const form = formidable({ multiples: true, uploadDir: './uploads', keepExtensions: true })
+    form.parse(req, (err, fields) => {
+        if(fields.cIds===undefined){
+            //没有条目被选中
+            return res.send('-1') //-1 no courses selected
+        }
+        Course.remove({cId:fields.cIds}, (err) => {
+            if(err){
+                return res.send('-2') //-2 server error
+            }
+            return res.send('1') //1 delete successfully
+        })
+    })
+}
+
+//add course
+exports.addOneCourse = (req,res) => {
+    const form = formidable({ multiples: true, uploadDir: './uploads', keepExtensions: true })
+    form.parse(req, (err, fields) => {
+        if(err){
+            return res.send('-2') //-1 server error
+        }
+        //验证sId是否合法
+        Course.find({cId:fields.cId}, (err, students) => {
+            if(err){
+                return res.send('-2') //-2 server error
+            }
+
+            if(students.length===0){
+                let course = new Course({
+                    cId: fields.cId,
+                    cName: fields.cName,
+                    cDayofweek: fields.cDayofweek,
+                    cNumber:fields.cNumber,
+                    cAllow:fields.cAllow,
+                    cTeacher:fields.cTeacher,
+                    cBriefintro:fields.cBriefintro,
+                })
+                console.log(course)
+
+                course.save((err) => {
+                    if(err){
+                        return res.send('-2') //-1 server error
+                    }
+
+                    return res.send('0') //0 no such course
+                })
+
+            }else{
+                return res.send('1') //1 course exists
+            }
+
+        })
+
+
     })
 }

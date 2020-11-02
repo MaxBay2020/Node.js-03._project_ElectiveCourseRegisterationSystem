@@ -56,6 +56,9 @@ app.get     ('/admin/course', adminCourseCtrl.showAdminCourse) //courses managem
 app.get     ('/course', adminCourseCtrl.getAllCourses) //get all courses
 app.get     ('/admin/course/import', adminCourseCtrl.showAdminCourseImport) //import course panel shows
 app.post    ('/admin/course/import', adminCourseCtrl.doAdminCourseImport) //submit form
+app.post    ('/admin/course/', adminCourseCtrl.updateOneCourse) //update course info
+app.delete  ('/course', adminCourseCtrl.removeSelectedCourses) //remove selected courses
+app.post    ('/course', adminCourseCtrl.addOneCourse) //remove selected courses
 
 
 //error page

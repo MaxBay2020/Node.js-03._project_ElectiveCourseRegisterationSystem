@@ -95,11 +95,9 @@
                                         <a href="javascript:void(0)" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addCourse">Add course</a>
                                         <a href="javascript:void(0)" id="delBtn" class="btn btn-danger btn-sm">Delete</a>
                                     </div>
+                                    <div class="col-md-2"></div>
                                     <div class="col-md-4">
                                         <input width="10px" autofocus id="keywords" class="form-control form-control-sm" type="text" placeholder="Please enter keyword" name="keywords">
-                                    </div>
-                                    <div class="col-md-2">
-                                        <a href="javascript:void(0)" id="downloadBtn" class="btn btn-success btn-sm">Download</a>
                                     </div>
                                 </div>
                             </div>
@@ -129,49 +127,71 @@
             <div class="modal-body">
 
                 <div class="form-group">
-                    <label for="sId" class="col-form-label">Student ID:</label>
-                    <input checkValid placeholder="Please enter student ID" name="sId" type="text" class="form-control" id="sId">
+                    <label for="cId" class="col-form-label">Course ID:</label>
+                    <input checkValid placeholder="Please enter course ID" name="cId" type="text" class="form-control" id="cId">
                 </div>
-                <div hidden id="sIdTip" class="myTip alert" role="alert"></div>
+                <div hidden id="cIdTip" class="myTip alert" role="alert"></div>
 
 
                 <div class="form-group">
-                    <label for="sName" class="col-form-label">Student Name:</label>
-                    <input checkValid placeholder="Please enter student name" type="text" name="sName" class="form-control" id="sName">
+                    <label for="cName" class="col-form-label">Course Name:</label>
+                    <input checkValid placeholder="Please enter course name" type="text" name="cName" class="form-control" id="cName">
                 </div>
-                <div hidden id="sNameTip" class="myTip alert" role="alert"></div>
+                <div hidden id="cNameTip" class="myTip alert" role="alert"></div>
 
 
                 <div class="form-group">
-                    <label class="col-form-label">Student Grade:</label>
-                    <select checkValid class="form-control" name="sGrade" id="sGrade">
+                    <label class="col-form-label">Day of Week:</label>
+                    <select checkValid class="form-control" name="cDayofweek" id="cDayofweek">
                         <option value="pleaseSelect">Please select</option>
-                        <option value="M1">M1</option>
-                        <option value="M1">M2</option>
-                        <option value="M1">M3</option>
-                        <option value="M1">H1</option>
-                        <option value="M1">H2</option>
-                        <option value="M1">H3</option>
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
                     </select>
                 </div>
-                <div hidden id="sGradeTip" class="myTip alert" role="alert"></div>
+                <div hidden id="cDayofweek" class="myTip alert" role="alert"></div>
+
+                <div class="form-group">
+                    <label for="cNumber" class="col-form-label">Limited student number:</label>
+                    <input checkValid placeholder="Please enter limited student number" type="number" name="cNumber" class="form-control" id="cNumber">
+                </div>
+                <div hidden id="cNumberTip" class="myTip alert" role="alert"></div>
 
 
                 <div class="form-group">
-                    <label for="sPassword" class="col-form-label">Initial Password:</label>
-                    <input checkValid placeholder="Please enter student initial password" type="text" name="sPassword" class="form-control" id="sPassword">
+                    <label class="col-form-label">Allowed grades:</label>
+                    <label class="col-form-label">M1<input checkValid type="checkbox" name="cAllow" class="form-control" value="M1"></label>
+                    <label class="col-form-label">M2<input checkValid type="checkbox" name="cAllow" class="form-control" value="M2"></label>
+                    <label class="col-form-label">M3<input checkValid type="checkbox" name="cAllow" class="form-control" value="M3"></label>
+                    <label class="col-form-label">H1<input checkValid type="checkbox" name="cAllow" class="form-control" value="H1"></label>
+                    <label class="col-form-label">H2<input checkValid type="checkbox" name="cAllow" class="form-control" value="H2"></label>
+                    <label class="col-form-label">H3<input checkValid type="checkbox" name="cAllow" class="form-control" value="H3"></label>
                 </div>
-                <div hidden id="sPasswordTip" class="myTip alert" role="alert"></div>
+                <div hidden id="cAllowTip" class="myTip alert" role="alert"></div>
 
+                <div class="form-group">
+                    <label for="cTeacher" class="col-form-label">Instructor:</label>
+                    <input checkValid placeholder="Please enter assgined teacher" type="text" name="cTeacher" class="form-control" id="cTeacher">
+                </div>
+                <div hidden id="cTeacherTip" class="myTip alert" role="alert"></div>
+
+                <div class="form-group">
+                    <label for="cBriefintro" class="col-form-label">Course description:</label>
+                    <textarea checkValid placeholder="Please describe the course" name="cBriefintro" class="form-control" id="cBriefintro" cols="20" rows="10"></textarea>
+                </div>
+                <div hidden id="cBriefintroTip" class="myTip alert" role="alert"></div>
 
             </div>
+
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button disabled type="button" class="btn btn-primary" id="submitBtn">Add</button>
+                <button type="button" class="btn btn-primary" id="submitBtn">Add</button>
             </div>
         </div>
     </div>
 </div>
 
 <script src="/public/js/spop.js"></script>
-<!--<script src="/public/js/addStudent.js"></script>-->
+<script src="/public/js/addCourse.js"></script>
