@@ -38,13 +38,13 @@ exports.doAdminCourseImport = (req,res) => {
             let uploadedCourses = JSON.parse(data.toString())
             Course.insertMany(uploadedCourses.courses, (err, data) => {
                 if(err){
-                    return res.render('admin/partials/errorPage', {
+                    return res.render('partials/errorPage', {
                         'page': 'Courses',
                         'tip': 'Oops! Uploaded failed'
                     })
                 }
 
-                return res.render('admin/partials/errorPage', {
+                return res.render('partials/errorPage', {
                     'page': 'Courses',
                     'tip': 'Upload successfully. You have insert '+data.length+' courses into database.'
                 })

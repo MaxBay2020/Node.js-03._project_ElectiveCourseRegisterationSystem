@@ -17,7 +17,7 @@ mongoose.connect(mongoDBURI.uri, {useNewUrlParser: true, useUnifiedTopology: tru
 app.set('trust proxy', 1) // trust first proxy
 app.use(session({
     secret: 'SelectiveCourseRegistrationSystem',
-    cookie: {maxAge: 60000},
+    cookie: {maxAge: 24*60*60*1000}, //1 day valid
     resave: false,
     saveUninitialized: true
 }))
@@ -70,8 +70,10 @@ app.post    ('/login', mainCtrl.doLogin) //handle login
 app.get     ('/', mainCtrl.showIndex) //show course registration table
 app.get     ('/logout', mainCtrl.doLogout) //logout
 app.get     ('/changePassword', mainCtrl.showChangePassword)//show change password page
-app.post     ('/changePassword', mainCtrl.doChangePassword)//do change password
-
+app.post    ('/changePassword', mainCtrl.doChangePassword)//do change password
+app.get     ('/check', mainCtrl.check) //check whether can register course
+app.post    ('/register', mainCtrl.register)//register courses
+app.post    ('/cancel', mainCtrl.cancel)//cancel courses
 
 //error page
 app.use((req,res)=>{

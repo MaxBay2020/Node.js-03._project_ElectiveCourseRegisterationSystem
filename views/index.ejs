@@ -1,4 +1,9 @@
-<body class="bg-default">
+<style>
+  .btn[disabled]{
+    cursor: not-allowed
+  }
+</style>
+<body class="">
   <!-- Navbar -->
   <nav id="navbar-main" class="navbar navbar-horizontal navbar-transparent navbar-main navbar-expand-lg navbar-light">
     <div class="container">
@@ -26,7 +31,7 @@
         </div>
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a href="" class="nav-link">
+            <a href="/course" class="nav-link">
               <span class="nav-link-inner--text">Register Courses</span>
             </a>
           </li>
@@ -47,7 +52,7 @@
               <span class="btn-inner--icon">
                 <i class="fas fa-user-graduate mr-2"></i>
               </span>
-              <span class="nav-link-inner--text">Welcome! <%= sName %> (<%= sId %>)</span>
+              <span class="nav-link-inner--text">Welcome! <%= sName %> (<%= sId %>, <%= sGrade %>)</span>
             </a>
           </li>
           <li  class="nav-item d-none d-lg-block ml-lg-4">
@@ -61,27 +66,45 @@
   <div class="main-content">
     <!-- Header -->
     <div class="header bg-gradient-primary py-7 py-lg-8 pt-lg-9">
-      <div class="container">
-        <div class="header-body text-center mb-7">
-        </div>
-      </div>
-      <div class="separator separator-bottom separator-skew zindex-100">
-        <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
-          <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
-        </svg>
-      </div>
-    </div>
-    <!-- Page content -->
-    <div class="container mt--8 pb-5">
-      <div class="row justify-content-center">
-        <div class="col-lg-5 col-md-7">
-          <div class="card bg-secondary border-0 mb-0">
-            <div class="card-body px-lg-5 py-lg-5">
+      <div class="container-fluid mt--6">
+
+        <div class="row">
+          <div class="col-xl-12">
+            <div class="card">
+              <div class="card-header border-0">
+                <div class="row align-items-center">
+                  <div class="col">
+                    <h3 class="mb-0">Selective Courses</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="table-responsive">
+                <!-- Projects table -->
+                <table id="myTable" class="table align-items-center table-flush">
+                  <thead class="thead-light">
+                  <tr>
+                    <th style="width: 20px;text-align: center;  white-space: normal" align="center" scope="col">Course ID</th>
+                    <th style="width: 50px; text-align: center; white-space: normal" align="center" scope="col">Course Name</th>
+                    <th style="width: 50px; text-align: center; white-space: normal" align="center" scope="col">Day of week</th>
+                    <th style="width: 100px; text-align: center; white-space: normal" align="center" scope="col">Numbers allowed</th>
+                    <th style="width: 100px; text-align: center; white-space: normal" align="center" scope="col">Grades allowed</th>
+                    <th style="width: 50px; text-align: center; white-space: normal" align="center" scope="col">Teacher</th>
+                    <th align="center" scope="col">Introduction</th>
+                    <th style="width: 50px; text-align: center; white-space: normal" align="center" scope="col">Register</th>
+                  </tr>
+                  </thead>
+                  <tbody id="table">
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
       </div>
+
     </div>
+    <!-- Page content -->
+
   </div>
   <!-- Footer -->
   <footer class="py-5" id="footer-main">
@@ -91,12 +114,13 @@
         </div>
         <div class="col-xl-6">
           <ul class="nav nav-footer justify-content-center justify-content-xl-end">
-            <li class="nav-item">
-              <a href="https://baike.baidu.com/item/%E5%8C%85%E5%A4%B4%E5%B8%82%E7%AC%AC%E4%B9%9D%E4%B8%AD%E5%AD%A6/7663420?fr=aladdin" class="nav-link" target="_blank">About Us</a>
-            </li>
+
           </ul>
         </div>
       </div>
     </div>
   </footer>
 </body>
+
+<script src="/public/js/jquery.min.js"></script>
+<script src="/public/js/loadCourses.js"></script>

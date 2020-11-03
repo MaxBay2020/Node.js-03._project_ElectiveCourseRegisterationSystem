@@ -3,11 +3,12 @@ const mongoose = require('mongoose')
 const { Schema } = mongoose
 
 const studentSchema = new Schema({
-    'sId': String,
-    'sName': String,
-    'sGrade': String,
-    'sPassword': String,
-    'changedPassword': {type: Boolean, default: false}
+    'sId'               : String,
+    'sName'             : String,
+    'sGrade'            : String,
+    'sPassword'         : String,
+    'changedPassword'   : {type: Boolean, default: false},
+    'myCourses'         :[String]
 })
 
 /*import into db*/

@@ -1,0 +1,67 @@
+{
+	"courses" : [
+		{
+			"cId" : "1",
+			"cName" : "基础心理学",
+			"cDayofweek" : "Monday",
+			"cNumber" : 30,
+			"cAllow" : ["M3","H3"],
+			"cTeacher" : "王璐",
+			"cBriefintro" : "专业化地学习心理学的理论与流派、研究方法、心理咨询理论与流派以及社会心理学"
+		},
+		{
+			"cId" : "2",
+			"cName" : "电影 音乐 诗歌",
+			"cDayofweek" : "Tuesday",
+			"cNumber" : 30,
+			"cAllow" : ["M1","M2","M3","H1","H2","H3"],
+			"cTeacher" : "张勤敏",
+			"cBriefintro" : "通过电影、音乐、诗歌等多种较为感性的视听语言解读，跨界感性的视听语言的解读，体会经典与流行的魅力，拓展教材阅读的视野，丰富学生校园文化的文化含金量，自觉抵制流俗文化的侵蚀。<br />课程特别好，欢迎报名。"
+		},
+		{
+			"cId" : "3",
+			"cName" : "时事热点分析",
+			"cDayofweek" : "Wednesday",
+			"cNumber" : 30,
+			"cAllow" :  ["M1","M2","M3","H1","H2","H3"],
+			"cTeacher" : "朱先余",
+			"cBriefintro" : "分析国际热点、弄清来龙去脉、拓宽视野、训练多元思维"
+		},
+		{
+			"cId" : "4",
+			"cName" : "“国际热点”历史溯源",
+			"cDayofweek" : "Thursday",
+			"cNumber" : 30,
+			"cAllow" :  ["M1","M2","M3","H1","H2","H3"],
+			"cTeacher" : "历史组",
+			"cBriefintro" : "巴以冲突、乌克兰危机、非洲种族矛盾等"
+		},
+{
+			"cId" : "5",
+			"cName" : "旅游地理与审美教育",
+			"cDayofweek" : "Wednesday",
+			"cNumber" : 30,
+			"cAllow" :  ["M1","M2","H2"],
+			"cTeacher" : "地理组",
+			"cBriefintro" : "旅游地理的基本知识，讲解旅游的美学知识，介绍旅游中的“自然美”、“生活美”、“艺术美”等内容，介绍如何去欣赏景观，培养学生的审美能力"
+		},
+		{
+			"cId" : "6",
+			"cName" : "American TV 美国电视",
+			"cDayofweek" : "Friday",
+			"cNumber" : 30,
+			"cAllow" :  ["M2","M3","H1","H2"],
+			"cTeacher" : "Ashley",
+			"cBriefintro" : "通过观看各种美国电视、戏剧等来练习英语听力，并展开对于剧情的讨论以深化对内容的理解"
+		},
+		{
+			"cId" : "7",
+			"cName" : "奥数辅导",
+			"cDayofweek" : "Monday",
+			"cNumber" : 30,
+			"cAllow" :  ["M2","M3","H1"],
+			"cTeacher" : "数学组",
+			"cBriefintro" : "基于奥赛考试大纲，于教材同步，进行知识梳理方法提炼，能力培养"
+		} 
+	]
+}

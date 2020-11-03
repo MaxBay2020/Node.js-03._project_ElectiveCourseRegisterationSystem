@@ -31,7 +31,7 @@ exports.doAdminStudentImport = (req,res)=>{
     form.parse(req, (err, fields, files) => {
         //检查扩展名是不是为xlsx
         if(path.extname(files.studentExcel.name) !== '.xlsx'){
-            res.render('admin/partials/errorPage', {
+            res.render('partials/errorPage', {
                 'page': 'Students',
                 'tip': 'Sorry, the type of uploaded file is incorrect'
             })
@@ -49,7 +49,7 @@ exports.doAdminStudentImport = (req,res)=>{
         const workSheetsFromFile = xlsx.parse('./'+files.studentExcel.path);
         //子表是否齐全，应该是6个子表
         if(workSheetsFromFile.length !== 6){
-            return res.render('admin/partials/errorPage', {
+            return res.render('partials/errorPage', {
                 'page': 'Students',
                 'tip': 'The excel file lacks of sub-forms'
             })
@@ -60,7 +60,7 @@ exports.doAdminStudentImport = (req,res)=>{
             if(workSheetsFromFile[i].data[0][0]!=='学号' ||
                 workSheetsFromFile[i].data[0][1]!=='姓名'
             ){
-                return res.render('admin/partials/errorPage', {
+                return res.render('partials/errorPage', {
                     'page': 'Students',
                     'tip': 'The format of sub-form '+(i+1)+' is incorrect. Please make sure there are studentId, studentName on the top of each sub-form'
                 })
@@ -69,7 +69,7 @@ exports.doAdminStudentImport = (req,res)=>{
 
         //此时，文件是合法的，命令mongoose，将数据存储到db中
         Student.importStudents(workSheetsFromFile)
-        return res.render('admin/partials/errorPage', {
+        return res.render('partials/errorPage', {
             'page': 'Students',
             'tip': 'Upload successfully'
         })

@@ -9,7 +9,8 @@ const courseSchema = new Schema({
     cNumber         : Number,
     cAllow          : [String],
     cTeacher        : String,
-    cBriefintro     : String
+    cBriefintro     : String,
+    myStudents       : [String]
 })
 
 /*import into db*/

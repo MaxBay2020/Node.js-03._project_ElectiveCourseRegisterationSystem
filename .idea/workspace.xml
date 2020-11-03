@@ -2,30 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6cc9fd87-171d-40a4-9cb8-852ee18ebb63" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/controllers/mainCtrl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/changePassword.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/login.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/changePassword.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/index.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/login.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/loadCourses.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/adminCourseCtrl.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/adminCourseCtrl.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/adminStudentCtrl.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/adminStudentCtrl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/mainCtrl.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/mainCtrl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Course.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Course.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/Student.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Student.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/course.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/course.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/course/import.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/course/import.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/index.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/index.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/layouts/layout1.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/layout1.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/partials/errorPage.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/errorPage.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/partials/header.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/header.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/partials/sidebar.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/sidebar.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/partials/title.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/title.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/report.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/report.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/student.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/student.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/student/import.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/student/import.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/changePassword.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/changePassword.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/index.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.ejs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -98,7 +84,7 @@
       <updated>1603843691751</updated>
       <workItem from="1603843693728" duration="1963000" />
       <workItem from="1603978378759" duration="26586000" />
-      <workItem from="1604017239072" duration="103350000" />
+      <workItem from="1604017239072" duration="122217000" />
     </task>
     <servers />
   </component>
