@@ -3,6 +3,13 @@ const Student = require('../models/Student')
 const Course = require('../models/Course')
 const bcrypt = require('bcrypt')
 
+exports.checkRole=(req,res, next) =>{
+    if(req.session.role==='admin'){
+        return res.send('Please visit as a student')
+    }
+    next()
+}
+
 exports.showLogin = (req,res) => {
     res.render('login')
 }
@@ -93,6 +100,7 @@ exports.doLogin = (req,res) => {
  */
 exports.showIndex = (req,res) => {
     //登陆验证，如果session中没有login，则重定向到登陆页面
+
     if(!req.session.login){
         return res.redirect('/login')
     }
@@ -310,7 +318,7 @@ exports.cancel = (req,res) => {
             }
 
             //通过以上验证后，删掉元素
-            student.myCourses.pop(cId)
+            student.myCourses.splice(student.myCourses.indexOf(cId), 1)
             //保存学生，之后向课程中的学生数组中删除该学生
             student.save().then(()=>{
                 Course.find({cId:cId}, (err, courses) => {
@@ -322,14 +330,56 @@ exports.cancel = (req,res) => {
                         return res.send('0c') //no such course
                     }
                     //将学生从课程中的学生数组中删掉
-                    course.myStudents.pop(sId)
+                    course.myStudents.splice(course.myStudents.indexOf(sId), 1)
                     //名额+1
                     course.cNumber++
                     course.save().then(()=>{
-                        return res.send('1')//register successfully
+                        return res.send('1')//cancel successfully
                     })
                 })
             })
         })
+    })
+}
+
+/**
+ * show my courses page
+ * @returns {Array}
+ */
+exports.showMyCourses = (req,res) => {
+    //登陆验证，如果session中没有login，则重定向到登陆页面
+    if(!req.session.login){
+        return res.redirect('/login')
+    }else if(!req.session.changedPassword){ //如果没修改密码，则让强制用户修改
+        return res.redirect('/changePassword')
+    }
+
+    Student.find({sId:req.session.sId}, (err, students) => {
+        if(err){
+            return res.send('-2') //server error
+        }
+        let myCourses = students[0].myCourses
+        return res.render('myCourses', {
+            sId         : req.session.sId,
+            sName       : req.session.sName,
+            myCourses   : myCourses
+        })
+    })
+
+
+}
+
+
+exports.getCourse = (req,res) => {
+    let cId=req.params.cId
+    Course.find({cId:cId}, (err, courses) => {
+        if(err){
+            return res.send('-2') //server error
+        }
+        if(courses.length===0){
+            return res.send('0') //no such course
+        }
+
+        return res.send(courses)
     })
 }

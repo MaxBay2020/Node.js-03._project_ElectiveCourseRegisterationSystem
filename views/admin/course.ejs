@@ -52,7 +52,7 @@
                             <div class="media align-items-center">
 
                                 <div class="media-body  ml-2  d-none d-lg-block">
-                                    <i class="ni ni-bell-55">&nbsp;</i><span class="mb-0 text-sm  font-weight-bold">  Welcome, xxx</span>
+                                    <i class="ni ni-bell-55">&nbsp;</i><span class="mb-0 text-sm  font-weight-bold">  Welcome, <%= roleName %></span>
                                 </div>
                             </div>
                         </a>
@@ -60,12 +60,8 @@
                             <div class="dropdown-header noti-title">
                                 <h6 class="text-overflow m-0">Welcome!</h6>
                             </div>
-                            <a href="#!" class="dropdown-item">
-                                <i class="ni ni-settings-gear-65"></i>
-                                <span>Settings</span>
-                            </a>
                             <div class="dropdown-divider"></div>
-                            <a href="#!" class="dropdown-item">
+                            <a href="/admin/logout" class="dropdown-item">
                                 <i class="ni ni-user-run"></i>
                                 <span>Logout</span>
                             </a>
@@ -194,4 +190,5 @@
 </div>
 
 <script src="/public/js/spop.js"></script>
+<script src="/public/js/bootstrap.min.js"></script>
 <script src="/public/js/addCourse.js"></script>

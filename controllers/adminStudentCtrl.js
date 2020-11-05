@@ -9,19 +9,26 @@ const dateFormat = require('date-format')
 /*student panel controllers start*/
 exports.showAdminStudent = (req,res)=>{
     res.render('./admin/student', {
-        page:'Students'
+        page:'Students',
+        roleName: req.session.role
     })
 }
 
 exports.showAdminStudentImport = (req,res)=>{
+    // if(!req.session.login || req.session.role!=='admin'){
+    //     return res.redirect('/admin/login')
+    // }
+
     res.render('./admin/student/import', {
-        page:'Students'
+        page:'Students',
+        roleName: req.session.role
     })
 }
 
 exports.showAdminStudentExport = (req,res)=>{
     res.render('./admin/student/studentExport', {
-        page:'Students'
+        page:'Students',
+        roleName: req.session.role
     })
 }
 /*student panel controllers end*/
@@ -71,7 +78,8 @@ exports.doAdminStudentImport = (req,res)=>{
         Student.importStudents(workSheetsFromFile)
         return res.render('partials/errorPage', {
             'page': 'Students',
-            'tip': 'Upload successfully'
+            'tip': 'Upload successfully',
+            roleName: req.session.role
         })
 
     })
@@ -103,6 +111,12 @@ exports.getAllStudents = (req,res)=>{
     }
 
     Student.find(findFilter, (err, students) =>{
+        students.forEach((item) => {
+            if(item.changedPassword){
+                item.sPassword='Password changed'
+            }
+        })
+
         res.send(students)
     })
 }
@@ -122,6 +136,10 @@ exports.updateOneStudent = (req,res) =>{
             }
             students[0].sName = fields.sName
             students[0].sGrade = fields.sGrade
+            //如果更改的是密码，就该将密码变成没有更改
+            students[0].sPassword=fields.sPassword
+            students[0].changedPassword=false
+
             students[0].save().then(()=>{
                 return res.send('1') //1 update successfully
             })
@@ -132,6 +150,7 @@ exports.updateOneStudent = (req,res) =>{
 
 //add student
 exports.addOneStudent = (req,res) => {
+    console.log(1)
     const form = formidable({ multiples: true, uploadDir: './uploads', keepExtensions: true })
     form.parse(req, (err, fields) => {
         if(err){

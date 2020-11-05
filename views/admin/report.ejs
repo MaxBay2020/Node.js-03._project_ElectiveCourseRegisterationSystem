@@ -30,7 +30,7 @@
                             <div class="media align-items-center">
 
                                 <div class="media-body  ml-2  d-none d-lg-block">
-                                    <i class="ni ni-bell-55">&nbsp;</i><span class="mb-0 text-sm  font-weight-bold">  Welcome, xxx</span>
+                                    <i class="ni ni-bell-55">&nbsp;</i><span class="mb-0 text-sm  font-weight-bold">  Welcome, <%= roleName %></span>
                                 </div>
                             </div>
                         </a>
@@ -38,12 +38,9 @@
                             <div class="dropdown-header noti-title">
                                 <h6 class="text-overflow m-0">Welcome!</h6>
                             </div>
-                            <a href="#!" class="dropdown-item">
-                                <i class="ni ni-settings-gear-65"></i>
-                                <span>Settings</span>
-                            </a>
+
                             <div class="dropdown-divider"></div>
-                            <a href="#!" class="dropdown-item">
+                            <a href="/admin/logout" class="dropdown-item">
                                 <i class="ni ni-user-run"></i>
                                 <span>Logout</span>
                             </a>
@@ -63,101 +60,40 @@
         <div class="row">
             <div class="col-xl-12">
                 <div class="card">
-                    <div class="card-header border-0">
+                    <div id="beforeTable" class="card-header border-0">
                         <div class="row align-items-center">
-                            <div class="col">
-                                <h3 class="mb-0">Page visits</h3>
+                            <div class="col-md-4">
+                                <h3 class="mb-0">Reports</h3>
+                                <a href="javascript:" class="btn btn-primary btn-sm" id="reportStudentsBtn">Based on students</a>
+                                <a href="javascript:" class="btn btn-primary btn-sm" id="reportCoursesBtn">Based on courses</a>
                             </div>
+                            <div class="col-md-3"></div>
+                            <div class="col-md-5">
+                                <a href="javascript:" data-myCourseLength="2" class="btn btn-success btn-sm">Registered all</a>
+                                <a href="javascript:" data-myCourseLength="1" class="btn btn-success btn-sm">Registered one course</a>
+                                <a href="javascript:" data-myCourseLength="0" class="btn btn-success btn-sm">No registered</a>
+                            </div>
+
                         </div>
                     </div>
-                    <div class="table-responsive">
-                        <!-- Projects table -->
-                        <table class="table align-items-center table-flush">
-                            <thead class="thead-light">
-                            <tr>
-                                <th scope="col">Page name</th>
-                                <th scope="col">Visitors</th>
-                                <th scope="col">Unique users</th>
-                                <th scope="col">Bounce rate</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <th scope="row">
-                                    /argon/
-                                </th>
-                                <td>
-                                    4,569
-                                </td>
-                                <td>
-                                    340
-                                </td>
-                                <td>
-                                    <i class="fas fa-arrow-up text-success mr-3"></i> 46,53%
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    /argon/index.html
-                                </th>
-                                <td>
-                                    3,985
-                                </td>
-                                <td>
-                                    319
-                                </td>
-                                <td>
-                                    <i class="fas fa-arrow-down text-warning mr-3"></i> 46,53%
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    /argon/charts.html
-                                </th>
-                                <td>
-                                    3,513
-                                </td>
-                                <td>
-                                    294
-                                </td>
-                                <td>
-                                    <i class="fas fa-arrow-down text-warning mr-3"></i> 36,49%
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    /argon/tables.html
-                                </th>
-                                <td>
-                                    2,050
-                                </td>
-                                <td>
-                                    147
-                                </td>
-                                <td>
-                                    <i class="fas fa-arrow-up text-success mr-3"></i> 50,87%
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    /argon/profile.html
-                                </th>
-                                <td>
-                                    1,795
-                                </td>
-                                <td>
-                                    190
-                                </td>
-                                <td>
-                                    <i class="fas fa-arrow-down text-danger mr-3"></i> 46,53%
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <table id="myTable" class="table align-items-center table-flush">
+                        <thead class="thead-light">
+                        <tr>
+                            <th style="width: 20px;text-align: center;  white-space: normal" align="center" scope="col"></th>
+                            <th style="width: 100px; text-align: center; white-space: normal" align="center" scope="col"></th>
+                            <th style="width: 50px; text-align: center; white-space: normal" align="center" scope="col"></th>
+                        </tr>
+                        </thead>
+                        <tbody id="table">
+
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
+<script src="/public/js/jquery.min.js"></script>
+<script src="/public/js/bootstrap.min.js"></script>
+<script src="/public/js/reportStudents.js"></script>
+<script src="/public/js/reportCourses.js"></script>

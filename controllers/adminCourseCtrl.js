@@ -9,7 +9,8 @@ const Course = require('../models/Course')
  */
 exports.showAdminCourse = (req,res) => {
     res.render('admin/course', {
-        page: 'Courses'
+        page: 'Courses',
+        roleName: req.session.role
     })
 }
 
@@ -18,7 +19,8 @@ exports.showAdminCourse = (req,res) => {
  */
 exports.showAdminCourseImport = (req,res) => {
     res.render('admin/course/import', {
-        page: 'Courses'
+        page: 'Courses',
+        roleName: req.session.role
     })
 }
 
@@ -55,6 +57,7 @@ exports.doAdminCourseImport = (req,res) => {
 
 //load all courses to list
 exports.getAllCourses = (req,res)=>{
+
     let keywords = req.query.keywords
     let findFilter = {}
 
@@ -73,6 +76,7 @@ exports.getAllCourses = (req,res)=>{
                 {cBriefintro: regexp}
             ]
         }
+        console.log(findFilter)
     }
 
     Course.find(findFilter, (err, courses) =>{

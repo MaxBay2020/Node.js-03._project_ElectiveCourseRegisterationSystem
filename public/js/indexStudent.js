@@ -15,7 +15,7 @@ function pageInit(){
 				             {name : 'sId',index : 'sId',width : 50, align: 'center'},
 				             {name : 'sName',index : 'sName',width : 50, editable: true, align: 'center'},
 				             {name : 'sGrade',index : 'sGrade',width : 50, editable: true, align: 'center', edittype: 'select', editoptions: {value:'M1:M1;M2:M2;M3:M3;H1:H1;H2:H2;H3:H3'}},
-				             {name : 'sPassword',index : 'sPassword',width : 50, editable: false, align: 'center'}
+				             {name : 'sPassword',index : 'sPassword',width : 50, editable: true, align: 'center'}
 				],
 				rowNum : 10,//一页显示多少条
 				rowList : [ 10, 20, 30 ],//可供用户选择一页显示多少条
@@ -45,10 +45,12 @@ function pageInit(){
 					var sId= rowData.sId; //获得指定列的值 （sId 为colModel的name)
 					var sName= rowData.sName; //获得指定列的值 （sId 为colModel的name)
 					var sGrade= rowData.sGrade; //获得指定列的值 （sId 为colModel的name)
+					var sPassword= rowData.sPassword; //获得指定列的值 （sId 为colModel的name)
 					//取得学号，发送ajax之后入库
 					$.post('/student/'+sId,{
 						sName:sName,
-						sGrade:sGrade
+						sGrade:sGrade,
+						sPassword:sPassword
 					}, (data) => {
 						if(data==='1'){
 							spop({

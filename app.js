@@ -32,11 +32,17 @@ app.use(expressLayouts)
 /***
  * RESTful routes
  */
+
 /***
  * admin contrller
  */
+app.get     ('/admin/login', adminCtrl.showLogin) //show admin login page
+app.post    ('/admin/login', adminCtrl.doLogin) //admin login
+app.get    ('/admin/logout', adminCtrl.logout) //admin login
+app.get     ('/admin/*', adminCtrl.checkLogin) //whether admin login
 app.get     ('/admin', adminCtrl.showAdminDashboard) //admin panel shows
-app.get     ('/admin/report', adminCtrl.showAdminReport) //report panel shows
+app.get     ('/admin/report', adminCtrl.showAdminReport) //report basesd on students panel shows
+app.get     ('/admin/report/courses', adminCtrl.showAdminCoursesReport) //report based on courses shows
 
 /***
  * adminStudent controller
@@ -67,6 +73,7 @@ app.post    ('/course', adminCourseCtrl.addOneCourse) //remove selected courses
  */
 app.get     ('/login', mainCtrl.showLogin) //show login page
 app.post    ('/login', mainCtrl.doLogin) //handle login
+app.get     ('/*', mainCtrl.checkRole)
 app.get     ('/', mainCtrl.showIndex) //show course registration table
 app.get     ('/logout', mainCtrl.doLogout) //logout
 app.get     ('/changePassword', mainCtrl.showChangePassword)//show change password page
@@ -74,6 +81,8 @@ app.post    ('/changePassword', mainCtrl.doChangePassword)//do change password
 app.get     ('/check', mainCtrl.check) //check whether can register course
 app.post    ('/register', mainCtrl.register)//register courses
 app.post    ('/cancel', mainCtrl.cancel)//cancel courses
+app.get     ('/myCourses', mainCtrl.showMyCourses) //show my courses
+app.get     ('/courses/:cId', mainCtrl.getCourse) //course info query
 
 //error page
 app.use((req,res)=>{

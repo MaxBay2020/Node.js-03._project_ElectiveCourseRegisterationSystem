@@ -1,31 +1,47 @@
 
-$.get('/check', (results) => {
+getDataAndCreateTable()
 
-    $.get('/course', (data) => {
-        $.each(data, (index, item) => {
-            let $tr = $('<tr></tr>')
-            $tr.append('<td style="text-align: center">'+item.cId+'</td>')
-            $tr.append('<td style="text-align: center">'+item.cName+'</td>')
-            $tr.append('<td style="text-align: center">'+item.cDayofweek+'</td>')
-            $tr.append('<td style="text-align: center">'+item.cNumber+'</td>')
-            $tr.append('<td style="text-align: center">'+item.cAllow+'</td>')
-            $tr.append('<td style="text-align: center">'+item.cTeacher+'</td>')
-            $tr.append('<td style="width:200px; white-space: normal">'+item.cBriefintro+'</td>')
+function getDataAndCreateTable(keywords){
 
-            //更改按钮形态、样式和文本
-            if(results[item.cId]==='Register'){
-                $tr.append('<td style="text-align: center"><button data-cId='+item.cId+' class="btn btn-success bmBtn" id="registerBtn'+item.cId+'">'+results[item.cId]+'</button></td>')
-            }else if(results[item.cId]==='Registered'){
-                $tr.append('<td style="text-align: center"><a class="btn btn-secondary cancelBtn" href="javascript:void(0)" data-cId='+item.cId+' >Click to cancel</a></td>')
-            }else{
-                $tr.append('<td style="text-align: center"><button data-cId='+item.cId+' disabled class="btn btn-light bmBtn" id="registerBtn'+item.cId+'">'+results[item.cId]+'</button></td>')
-            }
+    $('#table tr').remove()
 
-            //上树
-            $('#table').append($tr)
+    $.get('/check', (results) => {
+        $.get('/course', {
+            keywords:keywords
+        },(data) => {
+            $.each(data, (index, item) => {
+                let $tr = $('<tr></tr>')
+                $tr.append('<td style="text-align: center">'+item.cId+'</td>')
+                $tr.append('<td style="text-align: center">'+item.cName+'</td>')
+                $tr.append('<td style="text-align: center">'+item.cDayofweek+'</td>')
+                $tr.append('<td style="text-align: center">'+item.cNumber+'</td>')
+                $tr.append('<td style="text-align: center">'+item.cAllow+'</td>')
+                $tr.append('<td style="text-align: center">'+item.cTeacher+'</td>')
+                $tr.append('<td style="width:200px; white-space: normal">'+item.cBriefintro+'</td>')
 
+                //更改按钮形态、样式和文本
+                if(results[item.cId]==='Register'){
+                    $tr.append('<td style="text-align: center"><button data-cId='+item.cId+' class="btn btn-success bmBtn" id="registerBtn'+item.cId+'">'+results[item.cId]+'</button></td>')
+                }else if(results[item.cId]==='Registered'){
+                    $tr.append('<td style="text-align: center"><a class="btn btn-secondary cancelBtn" href="javascript:void(0)" data-cId='+item.cId+' >Click to cancel</a></td>')
+                }else{
+                    $tr.append('<td style="text-align: center"><button data-cId='+item.cId+' disabled class="btn btn-light bmBtn" id="registerBtn'+item.cId+'">'+results[item.cId]+'</button></td>')
+                }
+
+                //上树
+                $('#table').append($tr)
+
+            })
         })
+
     })
+
+}
+
+//条件查询
+$('#keywords').bind('input', () => {
+    let keywords = $('#keywords').val()
+    getDataAndCreateTable(keywords)
 })
 
 //当元素是动态生成的时候，如果想给该元素绑定事件，我们可以使用委托
