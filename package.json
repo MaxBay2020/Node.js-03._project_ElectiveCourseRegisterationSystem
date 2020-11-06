@@ -4,6 +4,7 @@
   "description": "elective course registration system for teachers and students; technologies: Node.js+Express+MongoDB+Mongoose+ejs+Bootstrap+jQuery",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Cong Wang",
